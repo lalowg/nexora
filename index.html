@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>document.documentElement.classList.add('js');</script>
+<title>NEXORA — The Living Intelligence</title>
+<meta name="description" content="NEXORA imagines an AI platform as a living organism: agents, automation, perception and reasoning sharing one nervous system that grows as you explore. An interactive WebGL concept.">
+<meta name="theme-color" content="#0B0D10">
+<link rel="canonical" href="https://nexora-ashy-ten.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NEXORA">
+<meta property="og:title" content="NEXORA — The Living Intelligence">
+<meta property="og:description" content="An AI platform imagined as a digital organism. Explore a living neural universe that re-wires itself for agents, automation, perception and reasoning.">
+<meta property="og:url" content="https://nexora-ashy-ten.vercel.app/">
+<meta property="og:image" content="https://nexora-ashy-ten.vercel.app/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NEXORA — The Living Intelligence">
+<meta name="twitter:description" content="An AI platform imagined as a digital organism. Explore a living neural universe that re-wires itself as you explore.">
+<meta name="twitter:image" content="https://nexora-ashy-ten.vercel.app/og.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Tomorrow:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js" } }
+</script>
+<script type="module" src="main.js"></script>
+</head>
+<body data-stage="hero">
+<a class="skip" href="#main">Skip to content</a>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="nx-grad" x1="8" y1="56" x2="56" y2="8" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#29E3F2"/><stop offset="1" stop-color="#7A4DFF"/>
+    </linearGradient>
+  </defs>
+  <symbol id="nx-mark" viewBox="0 0 64 64">
+    <path d="M32 4A28 28 0 1 0 53.45 14" fill="none" stroke="url(#nx-grad)" stroke-width="1.8" stroke-linecap="round" opacity=".6"/>
+    <path d="M18 46V18L46 46V18" fill="none" stroke="url(#nx-grad)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M46 18L55.5 8.5" fill="none" stroke="#E7E9EE" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="18" cy="46" r="4.2" fill="#29E3F2"/>
+    <circle cx="18" cy="18" r="3.2" fill="#E7E9EE"/>
+    <circle cx="46" cy="46" r="3.2" fill="#E7E9EE"/>
+    <circle cx="46" cy="18" r="4.2" fill="#7A4DFF"/>
+    <circle cx="32" cy="32" r="2.2" fill="#E7E9EE"/>
+    <circle cx="56" cy="8" r="2.6" fill="#29E3F2"/>
+  </symbol>
+</svg>
+
+<div class="organism-layer" aria-hidden="true">
+  <canvas id="organism-canvas"></canvas>
+  <div class="organism-fallback" id="organism-fallback"></div>
+  <div class="organism-vignette"></div>
+</div>
+
+<header class="site-header">
+  <a class="brand" href="#organism" aria-label="NEXORA home — back to the organism">
+    <svg class="brand-mark" aria-hidden="true" focusable="false"><use href="#nx-mark"/></svg>
+    <span class="brand-word" aria-hidden="true">NEXORA</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <ul>
+      <li><a href="#organism">Organism</a></li>
+      <li><a href="#capabilities">Capabilities</a></li>
+      <li><a href="#anatomy">Anatomy</a></li>
+      <li><a href="#growth">Growth</a></li>
+      <li><a href="#protocol">Protocol</a></li>
+      <li><a href="#access">Access</a></li>
+    </ul>
+  </nav>
+  <div class="header-tools">
+    <p class="gen-chip" role="img" aria-label="Organism growth: generation 1 of 6" data-gen-chip>
+      <span class="gen-label" aria-hidden="true">Gen <b data-hud="gen">01</b></span>
+      <span class="gen-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    </p>
+    <a class="btn btn-primary header-cta" href="#access">Request access</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
+      <span class="menu-icon" aria-hidden="true"><i></i><i></i></span><span class="menu-label">Menu</span>
+    </button>
+  </div>
+</header>
+
+<div class="menu-panel" id="menu" hidden>
+  <nav aria-label="Mobile">
+    <ol class="menu-list">
+      <li><a href="#organism"><span>01</span>Organism</a></li>
+      <li><a href="#capabilities"><span>02</span>Capabilities</a></li>
+      <li><a href="#anatomy"><span>03</span>Anatomy</a></li>
+      <li><a href="#growth"><span>04</span>Growth</a></li>
+      <li><a href="#protocol"><span>05</span>Protocol</a></li>
+      <li><a href="#access"><span>06</span>Access</a></li>
+    </ol>
+  </nav>
+  <a class="btn btn-primary" href="#access">Request access</a>
+  <p class="menu-note">Fictional concept brand — portfolio project.</p>
+</div>
+
+<main id="main" tabindex="-1">
+
+  <!-- ============ 01 ORGANISM (signature) ============ -->
+  <section class="hero" id="organism" data-stage="hero" aria-labelledby="hero-title" aria-describedby="hero-viz-desc">
+    <div class="hero-hit" aria-hidden="true"></div>
+    <p class="sr-only" id="hero-viz-desc">Behind this section a living neural network of glowing neurons and synapses is drawn. Use the capability explorer to re-wire it, and the controls below it to fire a signal, grow a branch, turn the network, or pause its motion. The visualisation is illustrative.</p>
+
+    <div class="hud-frame" aria-hidden="true">
+      <i class="hf-c hf-tl"></i><i class="hf-c hf-tr"></i><i class="hf-c hf-bl"></i><i class="hf-c hf-br"></i>
+      <span class="hf-ruler"></span>
+      <span class="hf-field">Field <b data-field="x">+0.000</b> <b data-field="y">+0.000</b></span>
+      <span class="hf-id">Instance N-01 · live</span>
+    </div>
+
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>NEXORA · AI platform, grown not assembled</p>
+      <h1 id="hero-title" class="hero-title"><span class="h1-line">The <span class="h1-accent">Living</span></span> <span class="h1-line">Intelligence</span></h1>
+      <p class="lede">An AI platform designed as an organism. Agents, automation, perception and reasoning share one nervous system — it grows where your work needs it and prunes what it doesn't.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#capabilities">Dissect the organism</a>
+        <a class="btn btn-line" href="#access">Request access</a>
+      </div>
+    </div>
+
+    <div class="hero-spacer" aria-hidden="true"></div>
+
+    <aside class="rail" aria-labelledby="rail-label">
+      <div class="rail-head">
+        <p class="rail-title" id="rail-label">Capability explorer</p>
+        <p class="rail-sub">Select to re-wire</p>
+      </div>
+      <div class="rail-list" role="radiogroup" aria-labelledby="rail-label">
+        <button class="rail-item" type="button" role="radio" aria-checked="true" tabindex="0" data-cap="organism">
+          <span class="ri-idx">00</span><span class="ri-name">Organism</span><span class="ri-topo">Whole</span>
+        </button>
+        <button class="rail-item" type="button" role="radio" aria-checked="false" tabindex="-1" data-cap="agents">
+          <span class="ri-idx">01</span><span class="ri-name">Agents</span><span class="ri-topo">Colony</span>
+        </button>
+        <button class="rail-item" type="button" role="radio" aria-checked="false" tabindex="-1" data-cap="automation">
+          <span class="ri-idx">02</span><span class="ri-name">Automation</span><span class="ri-topo">Loop</span>
+        </button>
+        <button class="rail-item" type="button" role="radio" aria-checked="false" tabindex="-1" data-cap="perception">
+          <span class="ri-idx">03</span><span class="ri-name">Perception</span><span class="ri-topo">Shells</span>
+        </button>
+        <button class="rail-item" type="button" role="radio" aria-checked="false" tabindex="-1" data-cap="reasoning">
+          <span class="ri-idx">04</span><span class="ri-name">Reasoning</span><span class="ri-topo">Tree</span>
+        </button>
+      </div>
+      <div class="rail-readout">
+        <p class="rr-row"><span>Topology</span><strong data-hud="topo">Dendritic whole</strong></p>
+        <p class="rr-desc" data-hud="desc">The whole nervous system at rest. Every capability grows from it.</p>
+        <p class="rr-status" data-hud="status">Stable · signals flowing</p>
+      </div>
+      <p class="rail-hint">Drag the field to turn it. Tap anywhere to fire a signal.</p>
+    </aside>
+
+    <div class="telemetry">
+      <div class="tm-gen">
+        <span class="tm-k">Generation</span>
+        <span class="tm-v"><b data-hud="gen">01</b><span class="tm-of">/06</span></span>
+        <span class="tm-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      </div>
+      <dl class="tm-stats">
+        <div><dt>Neurons</dt><dd data-hud="neurons">0000</dd></div>
+        <div><dt>Synapses</dt><dd data-hud="synapses">0000</dd></div>
+        <div class="tm-mode"><dt>Wiring</dt><dd data-hud="mode">Organism</dd></div>
+      </dl>
+      <div class="tm-controls" role="group" aria-label="Organism controls">
+        <button class="tm-btn" type="button" data-act="stim">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12h5l2-6 4 12 2-6h7"/></svg><span>Fire signal</span>
+        </button>
+        <button class="tm-btn" type="button" data-act="grow">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21V9M12 13l-5-5M12 10l5-5"/><circle cx="7" cy="7" r="1.6"/><circle cx="17" cy="4.5" r="1.6"/></svg><span data-grow-label>Grow branch</span>
+        </button>
+        <button class="tm-btn tm-icon" type="button" data-act="rotl" aria-label="Turn the organism left">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 7 4 12l5 5M4 12h11a5 5 0 0 0 5-5"/></svg>
+        </button>
+        <button class="tm-btn tm-icon" type="button" data-act="rotr" aria-label="Turn the organism right">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m15 7 5 5-5 5M20 12H9a5 5 0 0 1-5-5"/></svg>
+        </button>
+        <button class="tm-btn" type="button" data-act="motion" aria-pressed="false">
+          <svg class="ic-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14M16 5v14"/></svg>
+          <svg class="ic-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 5l12 7-12 7z"/></svg>
+          <span data-motion-label>Pause motion</span>
+        </button>
+      </div>
+      <p class="tm-note">Illustrative visualisation — not a model of a real system.</p>
+    </div>
+  </section>
+
+  <!-- ============ 02 CAPABILITIES ============ -->
+  <section class="caps" id="capabilities" data-stage="capabilities" aria-labelledby="caps-title">
+    <div class="caps-intro">
+      <p class="eyebrow"><span class="eyebrow-num">02</span>Capabilities</p>
+      <h2 id="caps-title" data-scan>Four capabilities. One nervous system.</h2>
+      <p class="caps-lede">Most AI products bolt features together. NEXORA grows them from a shared body, so an agent can see what perception saw, and reasoning can set automation in motion without an integration project. Keep scrolling and watch the same neurons re-wire for each job.</p>
+    </div>
+
+    <div class="caps-body">
+      <div class="chapters">
+
+        <article class="chapter" data-cap="agents" aria-labelledby="cap-agents">
+          <div class="chapter-inner">
+            <div class="ch-head">
+              <div>
+                <p class="ch-idx">01 · Capability</p>
+                <h3 class="ch-name" id="cap-agents">Agents</h3>
+              </div>
+              <figure class="ch-wiring"><svg class="wiring" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><path class="wire-edges" pathLength="1" d="M110.5 109.2L159.3 47M110.5 109.2L89.3 94.9M159.3 47L89.3 94.9M110.5 109.2L74.3 82M89.3 94.9L74.3 82M110.5 109.2L196.9 116M74.3 82L196.9 116M110.5 109.2L28.5 132.9M196.9 116L28.5 132.9M110.5 109.2L136.1 119.8M28.5 132.9L136.1 119.8M110.5 109.2L133.8 187.6M136.1 119.8L133.8 187.6M133.8 187.6L159.3 47M159.3 47L152.9 41.7M89.3 94.9L91 103.2M74.3 82L68.7 81.5M152.9 41.7L68.7 81.5M196.9 116L200.8 111.6M28.5 132.9L23.1 141M136.1 119.8L132.3 118.9M133.8 187.6L129.9 179.2M152.9 41.7L159.8 42.4M91 103.2L82.1 99.2M68.7 81.5L66 88.5M200.8 111.6L194.3 103.2M23.1 141L25.6 141.3M132.3 118.9L138.6 121.5M136.1 119.8L138.6 121.5M129.9 179.2L136.1 185.5M159.3 47L152 51M82.1 99.2L82.1 93.6M68.7 81.5L69.1 76.7M200.8 111.6L206.6 106.4M25.6 141.3L20.7 147.5M138.6 121.5L140.1 113M136.1 185.5L139.7 180M152.9 41.7L146.1 47.6M152 51L146.1 47.6M91 103.2L91.6 91.1M66 88.5L58.4 89.8M194.3 103.2L193.9 99.4M25.6 141.3L25.4 150.7M138.6 121.5L138.7 112.9M136.1 185.5L136.1 197.1M146.1 47.6L151.1 42.2M152.9 41.7L151.1 42.2M91.6 91.1L94.2 83.9M66 88.5L68.1 90.9M194.3 103.2L200.9 104.1M25.4 150.7L21.4 156.8M138.7 112.9L133.3 113.6M136.1 197.1L141.1 194M132.3 118.9L141.1 194M151.1 42.2L146.6 36.7M91 103.2L88.3 103.6M146.1 47.6L88.3 103.6M58.4 89.8L65.9 88.4M66 88.5L65.9 88.4M194.3 103.2L196.9 115M66 88.5L196.9 115M25.6 141.3L28.7 138.1M133.3 113.6L137 112.9M139.7 180L131.6 181.3M136.1 185.5L131.6 181.3M159.8 42.4L169.8 39.8M94.2 83.9L98.8 80M65.9 88.4L65.8 92.2M194.3 103.2L187 96.9M28.7 138.1L25.1 129.3M132.3 118.9L139.5 116.1M138.7 112.9L139.5 116.1M131.6 181.3L136.9 178.3M136.9 178.3L94.2 83.9M152 51L160.2 51.3M20.7 147.5L160.2 51.3M159.3 47L160.2 51.3M91.6 91.1L86.8 94.6M86.8 94.6L25.1 129.3M88.3 103.6L86.8 94.6M68.1 90.9L59.2 87.3M136.9 178.3L59.2 87.3M152.9 41.7L59.2 87.3M58.4 89.8L59.2 87.3M200.9 104.1L207.5 104.1M66 88.5L207.5 104.1M25.4 150.7L32.4 149.4M133.3 113.6L137.5 121M138.6 121.5L137.5 121M136.9 178.3L131 169.6M200.9 104.1L131 169.6M151.1 42.2L149.3 47.5M86.8 94.6L92 104.1M138.6 121.5L92 104.1M59.2 87.3L62.5 92M58.4 89.8L62.5 92M193.9 99.4L204.5 97.9M91.6 91.1L204.5 97.9M25.6 141.3L21.1 133.7M207.5 104.1L21.1 133.7M25.1 129.3L21.1 133.7M140.1 113L139.1 106.6M62.5 92L139.1 106.6M69.1 76.7L139.1 106.6M136.1 197.1L140.4 203.2M152 51L159.1 58.5M159.1 58.5L196.9 115M82.1 99.2L82.6 104.3M62.5 92L70.8 93.1M68.1 90.9L70.8 93.1M196.9 115L192.9 122.2M25.1 129.3L20 135.2M88.3 103.6L20 135.2M139.5 116.1L140.1 121.5M136.1 197.1L141.5 203.3M140.4 203.2L141.5 203.3M159.8 42.4L153.7 45.8M98.8 80L106.3 74.7M62.5 92L61.3 99.5M200.9 104.1L194.6 110.2M21.4 156.8L21.7 155.7M139.1 106.6L140.3 102.1M136.1 197.1L142.9 191.2M153.7 45.8L152.4 52.6M131 169.6L152.4 52.6M82.6 104.3L73 98.5M62.5 92L56.6 94M204.5 97.9L205.7 97.7M94.2 83.9L205.7 97.7M32.4 149.4L23.5 152.8M133.3 113.6L127.1 110.7M25.6 141.3L127.1 110.7M141.1 194L130.6 194.2M133.3 113.6L130.6 194.2M159.3 47L166.6 44.4M140.1 113L166.6 44.4M94.2 83.9L93.4 89M61.3 99.5L67.6 102.8M204.5 97.9L206 97.7M21.1 133.7L22.7 142.2M127.1 110.7L126.8 103.9M126.8 103.9L91 103.2M141.5 203.3L143.9 194.9M22.7 142.2L143.9 194.9M159.8 42.4L151.9 39M140.4 203.2L151.9 39M152.9 41.7L151.9 39M73 98.5L72.2 107.6M66 88.5L60.9 91.4M60.9 91.4L23.1 141M62.5 92L60.9 91.4M206.6 106.4L215.8 105.2M215.8 105.2L138.6 121.5M28.7 138.1L37.1 145.6M137 112.9L130.7 108.9M126.8 103.9L130.7 108.9M131.6 181.3L126.9 172.5M25.4 150.7L126.9 172.5M160.2 51.3L163.9 46.6M32.4 149.4L163.9 46.6M166.6 44.4L163.9 46.6M73 98.5L73.8 108.3M68.1 90.9L71 84.9M193.9 99.4L188 94.6M188 94.6L130.7 108.9M20.7 147.5L26.2 155.4M140.1 121.5L136 117.9M126.9 172.5L133.1 174.7M160.2 51.3L159.5 57.6M94.2 83.9L93 89.7M149.3 47.5L93 89.7M93.4 89L93 89.7M67.6 102.8L63 106.8M88.3 103.6L63 106.8M215.8 105.2L220 111.1M37.1 145.6L33.9 139.1M220 111.1L33.9 139.1M28.7 138.1L33.9 139.1M137 112.9L136.8 117.7M131 169.6L133 168M133 168L82.6 104.3"/><g class="wire-nodes"><circle cx="110.5" cy="109.2" r="5.6" style="--i:0"/><circle cx="159.3" cy="47" r="4" style="--i:1"/><circle cx="89.3" cy="94.9" r="4" style="--i:2"/><circle cx="74.3" cy="82" r="4" style="--i:3"/><circle cx="196.9" cy="116" r="4" style="--i:4"/><circle cx="28.5" cy="132.9" r="4" style="--i:5"/><circle cx="136.1" cy="119.8" r="4" style="--i:6"/><circle cx="133.8" cy="187.6" r="4" style="--i:7"/><circle cx="152.9" cy="41.7" r="2.3" style="--i:8"/><circle cx="91" cy="103.2" r="2.4" style="--i:9"/><circle cx="68.7" cy="81.5" r="2.5" style="--i:10"/><circle cx="200.8" cy="111.6" r="2.3" style="--i:11"/><circle cx="23.1" cy="141" r="2.5" style="--i:12"/><circle cx="132.3" cy="118.9" r="2.4" style="--i:13"/><circle cx="129.9" cy="179.2" r="2.5" style="--i:14"/><circle cx="159.8" cy="42.4" r="2.5" style="--i:15"/><circle cx="82.1" cy="99.2" r="2.3" style="--i:16"/><circle cx="66" cy="88.5" r="2.6" style="--i:17"/><circle cx="194.3" cy="103.2" r="2.3" style="--i:18"/><circle cx="25.6" cy="141.3" r="2.3" style="--i:19"/><circle cx="138.6" cy="121.5" r="2.4" style="--i:20"/><circle cx="136.1" cy="185.5" r="2.4" style="--i:21"/><circle cx="152" cy="51" r="2.5" style="--i:22"/><circle cx="82.1" cy="93.6" r="2.3" style="--i:23"/><circle cx="69.1" cy="76.7" r="2.4" style="--i:24"/><circle cx="206.6" cy="106.4" r="2.3" style="--i:25"/><circle cx="20.7" cy="147.5" r="2.2" style="--i:26"/><circle cx="140.1" cy="113" r="2.3" style="--i:27"/><circle cx="139.7" cy="180" r="2.4" style="--i:28"/><circle cx="146.1" cy="47.6" r="2.3" style="--i:29"/><circle cx="91.6" cy="91.1" r="2.3" style="--i:30"/><circle cx="58.4" cy="89.8" r="2.5" style="--i:31"/><circle cx="193.9" cy="99.4" r="2.3" style="--i:32"/><circle cx="25.4" cy="150.7" r="2.2" style="--i:33"/><circle cx="138.7" cy="112.9" r="2.3" style="--i:34"/><circle cx="136.1" cy="197.1" r="2.4" style="--i:35"/><circle cx="151.1" cy="42.2" r="2.3" style="--i:36"/><circle cx="94.2" cy="83.9" r="2.2" style="--i:37"/><circle cx="68.1" cy="90.9" r="2.3" style="--i:38"/><circle cx="200.9" cy="104.1" r="2.4" style="--i:39"/><circle cx="21.4" cy="156.8" r="2.4" style="--i:40"/><circle cx="133.3" cy="113.6" r="2.3" style="--i:41"/><circle cx="141.1" cy="194" r="2.5" style="--i:42"/><circle cx="146.6" cy="36.7" r="2.4" style="--i:43"/><circle cx="88.3" cy="103.6" r="2.6" style="--i:44"/><circle cx="65.9" cy="88.4" r="2.2" style="--i:45"/><circle cx="196.9" cy="115" r="2.4" style="--i:46"/><circle cx="28.7" cy="138.1" r="2.4" style="--i:47"/><circle cx="137" cy="112.9" r="2.2" style="--i:48"/><circle cx="131.6" cy="181.3" r="2.3" style="--i:49"/><circle cx="169.8" cy="39.8" r="1.8" style="--i:50"/><circle cx="98.8" cy="80" r="1.9" style="--i:51"/><circle cx="65.8" cy="92.2" r="1.8" style="--i:52"/><circle cx="187" cy="96.9" r="2" style="--i:53"/><circle cx="25.1" cy="129.3" r="1.9" style="--i:54"/><circle cx="139.5" cy="116.1" r="2" style="--i:55"/><circle cx="136.9" cy="178.3" r="1.9" style="--i:56"/><circle cx="160.2" cy="51.3" r="1.9" style="--i:57"/><circle cx="86.8" cy="94.6" r="2" style="--i:58"/><circle cx="59.2" cy="87.3" r="1.8" style="--i:59"/><circle cx="207.5" cy="104.1" r="1.8" style="--i:60"/><circle cx="32.4" cy="149.4" r="2" style="--i:61"/><circle cx="137.5" cy="121" r="1.8" style="--i:62"/><circle cx="131" cy="169.6" r="2" style="--i:63"/><circle cx="149.3" cy="47.5" r="1.9" style="--i:64"/><circle cx="92" cy="104.1" r="1.8" style="--i:65"/><circle cx="62.5" cy="92" r="2" style="--i:66"/><circle cx="204.5" cy="97.9" r="1.8" style="--i:67"/><circle cx="21.1" cy="133.7" r="1.9" style="--i:68"/><circle cx="139.1" cy="106.6" r="1.9" style="--i:69"/><circle cx="140.4" cy="203.2" r="1.8" style="--i:70"/><circle cx="159.1" cy="58.5" r="1.9" style="--i:71"/><circle cx="82.6" cy="104.3" r="2.1" style="--i:72"/><circle cx="70.8" cy="93.1" r="2" style="--i:73"/><circle cx="192.9" cy="122.2" r="1.9" style="--i:74"/><circle cx="20" cy="135.2" r="2.1" style="--i:75"/><circle cx="140.1" cy="121.5" r="1.8" style="--i:76"/><circle cx="141.5" cy="203.3" r="2" style="--i:77"/><circle cx="153.7" cy="45.8" r="2.1" style="--i:78"/><circle cx="106.3" cy="74.7" r="2" style="--i:79"/><circle cx="61.3" cy="99.5" r="1.9" style="--i:80"/><circle cx="194.6" cy="110.2" r="1.8" style="--i:81"/><circle cx="21.7" cy="155.7" r="1.9" style="--i:82"/><circle cx="140.3" cy="102.1" r="2" style="--i:83"/><circle cx="142.9" cy="191.2" r="2" style="--i:84"/><circle cx="152.4" cy="52.6" r="2.1" style="--i:85"/><circle cx="73" cy="98.5" r="1.9" style="--i:86"/><circle cx="56.6" cy="94" r="2" style="--i:87"/><circle cx="205.7" cy="97.7" r="1.8" style="--i:88"/><circle cx="23.5" cy="152.8" r="2.1" style="--i:89"/><circle cx="127.1" cy="110.7" r="2.1" style="--i:90"/><circle cx="130.6" cy="194.2" r="2.1" style="--i:91"/><circle cx="166.6" cy="44.4" r="1.9" style="--i:92"/><circle cx="93.4" cy="89" r="2" style="--i:93"/><circle cx="67.6" cy="102.8" r="1.9" style="--i:94"/><circle cx="206" cy="97.7" r="2" style="--i:95"/><circle cx="22.7" cy="142.2" r="1.8" style="--i:96"/><circle cx="126.8" cy="103.9" r="2" style="--i:97"/><circle cx="143.9" cy="194.9" r="2.1" style="--i:98"/><circle cx="151.9" cy="39" r="1.9" style="--i:99"/><circle cx="72.2" cy="107.6" r="1.9" style="--i:100"/><circle cx="60.9" cy="91.4" r="1.8" style="--i:101"/><circle cx="215.8" cy="105.2" r="2.1" style="--i:102"/><circle cx="37.1" cy="145.6" r="1.9" style="--i:103"/><circle cx="130.7" cy="108.9" r="1.9" style="--i:104"/><circle cx="126.9" cy="172.5" r="1.8" style="--i:105"/><circle cx="163.9" cy="46.6" r="2" style="--i:106"/><circle cx="73.8" cy="108.3" r="2" style="--i:107"/><circle cx="71" cy="84.9" r="1.9" style="--i:108"/><circle cx="188" cy="94.6" r="2" style="--i:109"/><circle cx="26.2" cy="155.4" r="2" style="--i:110"/><circle cx="136" cy="117.9" r="1.9" style="--i:111"/><circle cx="133.1" cy="174.7" r="1.9" style="--i:112"/><circle cx="159.5" cy="57.6" r="2" style="--i:113"/><circle cx="93" cy="89.7" r="1.9" style="--i:114"/><circle cx="63" cy="106.8" r="2" style="--i:115"/><circle cx="220" cy="111.1" r="1.8" style="--i:116"/><circle cx="33.9" cy="139.1" r="1.9" style="--i:117"/><circle cx="136.8" cy="117.7" r="1.8" style="--i:118"/><circle cx="133" cy="168" r="1.8" style="--i:119"/></g></svg><figcaption>Colony</figcaption></figure>
+            </div>
+            <p class="ch-statement">Give it an outcome, not a script.</p>
+            <p class="ch-body">An agent colony breaks one intent into cooperating specialists — research, drafting, checking, filing — each with its own scoped mandate. They hand context to one another the way cells pass signals, and any one of them can be recalled.</p>
+            <dl class="ch-traits">
+              <div class="trait"><dt>Decomposition</dt><dd>One request becomes a visible plan of sub-tasks before anything runs.</dd></div>
+              <div class="trait"><dt>Handoffs</dt><dd>Agents pass full context, so nothing is lost between steps.</dd></div>
+              <div class="trait"><dt>Recall</dt><dd>Every agent carries a mandate you can narrow or revoke at once.</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="chapter" data-cap="automation" aria-labelledby="cap-automation">
+          <div class="chapter-inner">
+            <div class="ch-head">
+              <div>
+                <p class="ch-idx">02 · Capability</p>
+                <h3 class="ch-name" id="cap-automation">Automation</h3>
+              </div>
+              <figure class="ch-wiring"><svg class="wiring" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><path class="wire-edges" pathLength="1" d="M128.1 120L218.5 104.5M128.1 120L205.4 109.4M218.5 104.5L205.4 109.4M128.1 120L197.6 110.1M205.4 109.4L197.6 110.1M128.1 120L206.8 105.3M197.6 110.1L206.8 105.3M128.1 120L218.5 102.1M206.8 105.3L218.5 102.1M218.5 104.5L218.5 102.1M218.5 104.5L176.2 65.6M205.4 109.4L173.3 74.5M197.6 110.1L177.2 75.4M206.8 105.3L184 63.3M218.5 102.1L182.4 59.9M176.2 65.6L135 66.7M173.3 74.5L141.3 65.8M135 66.7L141.3 65.8M177.2 75.4L143.6 54.1M141.3 65.8L143.6 54.1M184 63.3L135.3 47.1M143.6 54.1L135.3 47.1M182.4 59.9L130.3 54.9M135.3 47.1L130.3 54.9M135 66.7L130.3 54.9M135 66.7L122.6 78.8M141.3 65.8L119.7 68.2M143.6 54.1L105.7 66.9M135.3 47.1L101.6 77.5M130.3 54.9L114.6 85.7M122.6 78.8L118.6 86.6M128.1 120L118.6 86.6M119.7 68.2L105.1 86.1M118.6 86.6L105.1 86.1M105.7 66.9L98.4 98.6M105.1 86.1L98.4 98.6M101.6 77.5L111.6 105.5M98.4 98.6L111.6 105.5M114.6 85.7L122.8 98.2M111.6 105.5L122.8 98.2M118.6 86.6L122.8 98.2M118.6 86.6L99.1 99.9M105.1 86.1L94.1 110.7M98.4 98.6L105 120.9M111.6 105.5L117.4 117.2M122.8 98.2L114.3 101.9M99.1 99.9L72.1 138M94.1 110.7L87.6 148M72.1 138L87.6 148M105 120.9L89.8 148.7M87.6 148L89.8 148.7M117.4 117.2L78.3 140.9M89.8 148.7L78.3 140.9M114.3 101.9L68.2 134.9M78.3 140.9L68.2 134.9M72.1 138L68.2 134.9M72.1 138L70.3 182.6M87.6 148L72.5 193.1M89.8 148.7L58.4 202M78.3 140.9L45.8 191.3M68.2 134.9L54.9 178.5M70.3 182.6L94 208.8M128.1 120L94 208.8M72.5 193.1L84.7 220M94 208.8L84.7 220M58.4 202L73.6 218.5M84.7 220L73.6 218.5M45.8 191.3L72.6 204.7M73.6 218.5L72.6 204.7M54.9 178.5L83 200.4M72.6 204.7L83 200.4M94 208.8L83 200.4M94 208.8L124.9 199.7M84.7 220L114.2 198.8M73.6 218.5L105.7 188.4M72.6 204.7L111.3 183.9M83 200.4L120.8 188.8M124.9 199.7L140.7 156M114.2 198.8L129.9 152M140.7 156L129.9 152M105.7 188.4L127.1 152M129.9 152L127.1 152M111.3 183.9L139.8 157.4M127.1 152L139.8 157.4M120.8 188.8L145.2 158.5M139.8 157.4L145.2 158.5M140.7 156L145.2 158.5M140.7 156L139.6 122.3M129.9 152L136.9 131M127.1 152L149 138M139.8 157.4L156 129.8M145.2 158.5L150.7 119.2M139.6 122.3L148.8 116.4M128.1 120L148.8 116.4M136.9 131L157.8 127.4M148.8 116.4L157.8 127.4M149 138L167.7 120.8M157.8 127.4L167.7 120.8M156 129.8L162.3 108.7M167.7 120.8L162.3 108.7M150.7 119.2L152.9 107.1M162.3 108.7L152.9 107.1M148.8 116.4L152.9 107.1M148.8 116.4L180.5 108.7M157.8 127.4L189.5 105.6M167.7 120.8L181 95.4M162.3 108.7L170.2 91.7M152.9 107.1L170.2 99.3M180.5 108.7L192.7 61.5M189.5 105.6L183.6 60M192.7 61.5L183.6 60M181 95.4L172.1 67.4M183.6 60L172.1 67.4M170.2 91.7L175 72.2M172.1 67.4L175 72.2M170.2 99.3L188.1 68.4M175 72.2L188.1 68.4M192.7 61.5L188.1 68.4M192.7 61.5L143.8 24.5M183.6 60L140 38.5M172.1 67.4L141.1 45.1M175 72.2L146.4 34.2M188.1 68.4L148.8 20M143.8 24.5L77.5 40M128.1 120L77.5 40M140 38.5L81.2 50.4M77.5 40L81.2 50.4M141.1 45.1L76.2 43.9M81.2 50.4L76.2 43.9M146.4 34.2L69.5 28.1M76.2 43.9L69.5 28.1M148.8 20L70 25.1M69.5 28.1L70 25.1M77.5 40L70 25.1M77.5 40L46.7 84.1M81.2 50.4L37.5 88.6M76.2 43.9L20.6 83.5M69.5 28.1L20.4 75.1M70 25.1L36.3 75.9M46.7 84.1L47.7 124.9M37.5 88.6L37.6 131.6M47.7 124.9L37.6 131.6M20.6 83.5L33.7 126.5M37.6 131.6L33.7 126.5M20.4 75.1L44.7 114.5M33.7 126.5L44.7 114.5M36.3 75.9L53.7 113.9M44.7 114.5L53.7 113.9M47.7 124.9L53.7 113.9M47.7 124.9L76.3 151.4M37.6 131.6L78.9 145.7M33.7 126.5L82.6 130.7M44.7 114.5L81.3 131.2M53.7 113.9L78.1 142M76.3 151.4L114.5 157M128.1 120L114.5 157M78.9 145.7L118.8 143.5M114.5 157L118.8 143.5M82.6 130.7L115.1 138.5M118.8 143.5L115.1 138.5M81.3 131.2L106.6 149.7M115.1 138.5L106.6 149.7M78.1 142L106.2 162.4M106.6 149.7L106.2 162.4M114.5 157L106.2 162.4M114.5 157L146.7 158.7M118.8 143.5L148.5 158.5M115.1 138.5L143.7 169.1M106.6 149.7L136.8 179.7M106.2 162.4L139.9 171.1M146.7 158.7L183.6 169.4M148.5 158.5L187.1 182.1M183.6 169.4L187.1 182.1M143.7 169.1L179.3 189.5M187.1 182.1L179.3 189.5M136.8 179.7L172.1 177.2M179.3 189.5L172.1 177.2M139.9 171.1L175.8 166.3M172.1 177.2L175.8 166.3M183.6 169.4L175.8 166.3M183.6 169.4L219.6 154.4M218.5 104.5L219.6 154.4M187.1 182.1L212.9 159M205.4 109.4L212.9 159M179.3 189.5L200.4 155.6M197.6 110.1L200.4 155.6M172.1 177.2L199 146.9M206.8 105.3L199 146.9"/><g class="wire-nodes"><circle cx="128.1" cy="120" r="5.1" style="--i:0"/><circle cx="218.5" cy="104.5" r="2.5" style="--i:1"/><circle cx="205.4" cy="109.4" r="2.5" style="--i:2"/><circle cx="197.6" cy="110.1" r="2.5" style="--i:3"/><circle cx="206.8" cy="105.3" r="2.5" style="--i:4"/><circle cx="218.5" cy="102.1" r="2.5" style="--i:5"/><circle cx="176.2" cy="65.6" r="2" style="--i:6"/><circle cx="173.3" cy="74.5" r="1.9" style="--i:7"/><circle cx="177.2" cy="75.4" r="2" style="--i:8"/><circle cx="184" cy="63.3" r="1.9" style="--i:9"/><circle cx="182.4" cy="59.9" r="1.9" style="--i:10"/><circle cx="135" cy="66.7" r="2" style="--i:11"/><circle cx="141.3" cy="65.8" r="2" style="--i:12"/><circle cx="143.6" cy="54.1" r="1.8" style="--i:13"/><circle cx="135.3" cy="47.1" r="1.9" style="--i:14"/><circle cx="130.3" cy="54.9" r="2" style="--i:15"/><circle cx="122.6" cy="78.8" r="1.9" style="--i:16"/><circle cx="119.7" cy="68.2" r="1.8" style="--i:17"/><circle cx="105.7" cy="66.9" r="2" style="--i:18"/><circle cx="101.6" cy="77.5" r="1.9" style="--i:19"/><circle cx="114.6" cy="85.7" r="2" style="--i:20"/><circle cx="118.6" cy="86.6" r="1.9" style="--i:21"/><circle cx="105.1" cy="86.1" r="1.9" style="--i:22"/><circle cx="98.4" cy="98.6" r="1.9" style="--i:23"/><circle cx="111.6" cy="105.5" r="2" style="--i:24"/><circle cx="122.8" cy="98.2" r="1.8" style="--i:25"/><circle cx="99.1" cy="99.9" r="1.9" style="--i:26"/><circle cx="94.1" cy="110.7" r="1.8" style="--i:27"/><circle cx="105" cy="120.9" r="2.1" style="--i:28"/><circle cx="117.4" cy="117.2" r="1.9" style="--i:29"/><circle cx="114.3" cy="101.9" r="2" style="--i:30"/><circle cx="72.1" cy="138" r="1.9" style="--i:31"/><circle cx="87.6" cy="148" r="1.9" style="--i:32"/><circle cx="89.8" cy="148.7" r="2" style="--i:33"/><circle cx="78.3" cy="140.9" r="2" style="--i:34"/><circle cx="68.2" cy="134.9" r="1.8" style="--i:35"/><circle cx="70.3" cy="182.6" r="2.1" style="--i:36"/><circle cx="72.5" cy="193.1" r="2" style="--i:37"/><circle cx="58.4" cy="202" r="1.8" style="--i:38"/><circle cx="45.8" cy="191.3" r="1.8" style="--i:39"/><circle cx="54.9" cy="178.5" r="1.9" style="--i:40"/><circle cx="94" cy="208.8" r="1.9" style="--i:41"/><circle cx="84.7" cy="220" r="1.9" style="--i:42"/><circle cx="73.6" cy="218.5" r="2" style="--i:43"/><circle cx="72.6" cy="204.7" r="2.1" style="--i:44"/><circle cx="83" cy="200.4" r="1.9" style="--i:45"/><circle cx="124.9" cy="199.7" r="2" style="--i:46"/><circle cx="114.2" cy="198.8" r="1.9" style="--i:47"/><circle cx="105.7" cy="188.4" r="1.9" style="--i:48"/><circle cx="111.3" cy="183.9" r="1.9" style="--i:49"/><circle cx="120.8" cy="188.8" r="1.9" style="--i:50"/><circle cx="140.7" cy="156" r="1.8" style="--i:51"/><circle cx="129.9" cy="152" r="1.9" style="--i:52"/><circle cx="127.1" cy="152" r="2" style="--i:53"/><circle cx="139.8" cy="157.4" r="1.8" style="--i:54"/><circle cx="145.2" cy="158.5" r="2" style="--i:55"/><circle cx="139.6" cy="122.3" r="2" style="--i:56"/><circle cx="136.9" cy="131" r="2" style="--i:57"/><circle cx="149" cy="138" r="1.9" style="--i:58"/><circle cx="156" cy="129.8" r="1.9" style="--i:59"/><circle cx="150.7" cy="119.2" r="2" style="--i:60"/><circle cx="148.8" cy="116.4" r="2.1" style="--i:61"/><circle cx="157.8" cy="127.4" r="2.1" style="--i:62"/><circle cx="167.7" cy="120.8" r="1.9" style="--i:63"/><circle cx="162.3" cy="108.7" r="2" style="--i:64"/><circle cx="152.9" cy="107.1" r="1.8" style="--i:65"/><circle cx="180.5" cy="108.7" r="2" style="--i:66"/><circle cx="189.5" cy="105.6" r="1.8" style="--i:67"/><circle cx="181" cy="95.4" r="2.1" style="--i:68"/><circle cx="170.2" cy="91.7" r="1.9" style="--i:69"/><circle cx="170.2" cy="99.3" r="1.8" style="--i:70"/><circle cx="192.7" cy="61.5" r="2.5" style="--i:71"/><circle cx="183.6" cy="60" r="2.5" style="--i:72"/><circle cx="172.1" cy="67.4" r="2.5" style="--i:73"/><circle cx="175" cy="72.2" r="2.5" style="--i:74"/><circle cx="188.1" cy="68.4" r="2.5" style="--i:75"/><circle cx="143.8" cy="24.5" r="1.8" style="--i:76"/><circle cx="140" cy="38.5" r="1.8" style="--i:77"/><circle cx="141.1" cy="45.1" r="1.9" style="--i:78"/><circle cx="146.4" cy="34.2" r="1.8" style="--i:79"/><circle cx="148.8" cy="20" r="1.9" style="--i:80"/><circle cx="77.5" cy="40" r="1.8" style="--i:81"/><circle cx="81.2" cy="50.4" r="2" style="--i:82"/><circle cx="76.2" cy="43.9" r="1.9" style="--i:83"/><circle cx="69.5" cy="28.1" r="2" style="--i:84"/><circle cx="70" cy="25.1" r="1.9" style="--i:85"/><circle cx="46.7" cy="84.1" r="1.8" style="--i:86"/><circle cx="37.5" cy="88.6" r="2" style="--i:87"/><circle cx="20.6" cy="83.5" r="1.8" style="--i:88"/><circle cx="20.4" cy="75.1" r="1.9" style="--i:89"/><circle cx="36.3" cy="75.9" r="2" style="--i:90"/><circle cx="47.7" cy="124.9" r="1.9" style="--i:91"/><circle cx="37.6" cy="131.6" r="2" style="--i:92"/><circle cx="33.7" cy="126.5" r="2" style="--i:93"/><circle cx="44.7" cy="114.5" r="1.9" style="--i:94"/><circle cx="53.7" cy="113.9" r="2" style="--i:95"/><circle cx="76.3" cy="151.4" r="1.8" style="--i:96"/><circle cx="78.9" cy="145.7" r="2" style="--i:97"/><circle cx="82.6" cy="130.7" r="2" style="--i:98"/><circle cx="81.3" cy="131.2" r="2" style="--i:99"/><circle cx="78.1" cy="142" r="1.9" style="--i:100"/><circle cx="114.5" cy="157" r="2" style="--i:101"/><circle cx="118.8" cy="143.5" r="2" style="--i:102"/><circle cx="115.1" cy="138.5" r="1.9" style="--i:103"/><circle cx="106.6" cy="149.7" r="2" style="--i:104"/><circle cx="106.2" cy="162.4" r="1.9" style="--i:105"/><circle cx="146.7" cy="158.7" r="2" style="--i:106"/><circle cx="148.5" cy="158.5" r="1.8" style="--i:107"/><circle cx="143.7" cy="169.1" r="1.9" style="--i:108"/><circle cx="136.8" cy="179.7" r="1.8" style="--i:109"/><circle cx="139.9" cy="171.1" r="1.8" style="--i:110"/><circle cx="183.6" cy="169.4" r="1.8" style="--i:111"/><circle cx="187.1" cy="182.1" r="1.8" style="--i:112"/><circle cx="179.3" cy="189.5" r="2" style="--i:113"/><circle cx="172.1" cy="177.2" r="2" style="--i:114"/><circle cx="175.8" cy="166.3" r="2" style="--i:115"/><circle cx="219.6" cy="154.4" r="1.8" style="--i:116"/><circle cx="212.9" cy="159" r="2.1" style="--i:117"/><circle cx="200.4" cy="155.6" r="1.8" style="--i:118"/><circle cx="199" cy="146.9" r="1.8" style="--i:119"/></g></svg><figcaption>Circulation loop</figcaption></figure>
+            </div>
+            <p class="ch-statement">Processes that keep moving when the world doesn't cooperate.</p>
+            <p class="ch-body">Automations run as a circulation loop rather than a brittle chain. When a step stalls, the flow routes around it; when a connected system changes, the loop proposes its own re-wiring and shows you exactly what moved.</p>
+            <dl class="ch-traits">
+              <div class="trait"><dt>Event-native</dt><dd>Flows start from real events, not polling schedules.</dd></div>
+              <div class="trait"><dt>Self-routing</dt><dd>Stalled steps are bypassed and retried, with a full trace.</dd></div>
+              <div class="trait"><dt>Change-aware</dt><dd>A renamed field or new API version triggers a proposal, not a silent failure.</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="chapter" data-cap="perception" aria-labelledby="cap-perception">
+          <div class="chapter-inner">
+            <div class="ch-head">
+              <div>
+                <p class="ch-idx">03 · Capability</p>
+                <h3 class="ch-name" id="cap-perception">Perception</h3>
+              </div>
+              <figure class="ch-wiring"><svg class="wiring" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><path class="wire-edges" pathLength="1" d="M120.2 117.7L113 118.3M113 118.3L141 150.8M120.2 117.7L115.4 117.7M115.4 117.7L128.4 82.9M113 118.3L155.3 119.8M115.4 117.7L129.3 118.2M120.2 117.7L131.5 131.1M113 118.3L104.6 93.1M129.3 118.2L53.3 133.4M115.4 117.7L123.1 88.3M113 118.3L84.6 123.2M129.3 118.2L145.2 145M155.3 119.8L171.1 135.9M123.1 88.3L111.5 61.8M155.3 119.8L178 142M84.6 123.2L65.6 103.5M128.4 82.9L125 57.6M120.2 117.7L129.7 104.5M84.6 123.2L74.8 102.8M129.7 104.5L154.1 103.2M113 118.3L100.2 146.7M128.4 82.9L151.1 63.5M178 142L183.2 188.1M111.5 61.8L88.5 42.1M129.3 118.2L135.6 141.8M65.6 103.5L51.3 51.5M151.1 63.5L128.5 77.5M111.5 61.8L76.4 70.7M113 118.3L118.7 133M111.5 61.8L114.7 77.3M74.8 102.8L133.8 101.4M129.7 104.5L136.8 85.6M128.4 82.9L136.8 85.6M100.2 146.7L74.9 157M115.4 117.7L84.2 108.7M84.6 123.2L60.9 101.6M171.1 135.9L153.1 125.3M129.3 118.2L96 101.1M74.9 157L65.8 172.9M115.4 117.7L115 98.8M118.7 133L92.1 131.8M151.1 63.5L148.9 31.5M145.2 145L138.7 200.2M115.4 117.7L95.7 145M104.6 93.1L108.2 69.9M145.2 145L202.6 96.4M53.3 133.4L30.2 106.7M145.2 145L209.6 134.9M118.7 133L126.6 102.4M154.1 103.2L173.3 92.9M141 150.8L151.4 174.3M108.2 69.9L115.2 45.1M129.7 104.5L142.3 107.1M95.7 145L78.3 158.8M95.7 145L79.5 139.6M142.3 107.1L129.7 98.7M126.6 102.4L129.7 98.7M154.1 103.2L185.1 103.8M118.7 133L116.3 137.1M136.8 85.6L143.9 60.5M151.1 63.5L143.9 60.5M116.3 137.1L102.3 156.2M125 57.6L123.2 26.9M78.3 158.8L106 213.1M154.1 103.2L178.6 96.2M108.2 69.9L96.5 62.4M171.1 135.9L179.8 155M78.3 158.8L81.7 180.6M92.1 131.8L75.8 159M84.2 108.7L61.4 107.1M135.6 141.8L131.5 154.2M151.1 63.5L175.6 59.2M74.9 157L90.3 192.7M151.4 174.3L174 196M129.3 118.2L149.3 115.3M171.1 135.9L195.8 141.6M173.3 92.9L191.7 77.7M61.4 107.1L20 91M92.1 131.8L65.8 164.1M115 98.8L104.4 77.9M178 142L178.6 175.1M104.6 93.1L96.9 79.7M104.6 93.1L95.4 88.6M96.9 79.7L95.4 88.6M135.6 141.8L114.9 183.8M79.5 139.6L81.3 161.2M74.8 102.8L42.7 115.2M129.7 98.7L115.7 71.5M151.1 63.5L152.1 44M92.1 131.8L99.2 134.2M108.2 69.9L128.7 36.1M142.3 107.1L139.3 100.6M53.3 133.4L32.6 151.3M125 57.6L97.5 34.2M104.4 77.9L114 62.6M100.2 146.7L102.5 164.8M95.4 88.6L64.6 74.4M84.2 108.7L62.4 108.7M141 150.8L156.8 167.1M151.4 174.3L156.8 167.1M92.1 131.8L91.1 148.8M125 57.6L128.5 27.2M116.3 137.1L104.2 161.4M102.3 156.2L104.2 161.4M151.4 174.3L169.9 181.6M151.4 174.3L142.6 194.2M116.3 137.1L118 155.5M149.3 115.3L176.9 136.4M74.9 157L51.3 179M65.6 103.5L39.7 139.4M178.6 96.2L220 131.5M135.6 141.8L121.7 138.3M171.1 135.9L199.5 137.4M60.9 101.6L22 91M61.4 107.1L35.5 76.4M178 142L201 156.4M171.1 135.9L182.8 145.8M173.3 92.9L204.3 89.3M78.3 158.8L60.7 192.3M139.3 100.6L186.1 85.2M95.4 88.6L83.8 84.6M151.1 63.5L175.4 60.3M175.6 59.2L175.4 60.3M74.8 102.8L56.9 118.3M102.5 164.8L81.2 178.5M74.8 102.8L67.9 110.4"/><g class="wire-nodes"><circle cx="120.2" cy="117.7" r="5.3" style="--i:0"/><circle cx="113" cy="118.3" r="2.8" style="--i:1"/><circle cx="141" cy="150.8" r="2.4" style="--i:2"/><circle cx="115.4" cy="117.7" r="2.8" style="--i:3"/><circle cx="128.4" cy="82.9" r="2.3" style="--i:4"/><circle cx="155.3" cy="119.8" r="2.3" style="--i:5"/><circle cx="129.3" cy="118.2" r="2.4" style="--i:6"/><circle cx="131.5" cy="131.1" r="2.9" style="--i:7"/><circle cx="104.6" cy="93.1" r="2.4" style="--i:8"/><circle cx="53.3" cy="133.4" r="2.1" style="--i:9"/><circle cx="123.1" cy="88.3" r="2.3" style="--i:10"/><circle cx="84.6" cy="123.2" r="2.4" style="--i:11"/><circle cx="145.2" cy="145" r="2.1" style="--i:12"/><circle cx="171.1" cy="135.9" r="2.1" style="--i:13"/><circle cx="111.5" cy="61.8" r="2" style="--i:14"/><circle cx="178" cy="142" r="2.2" style="--i:15"/><circle cx="65.6" cy="103.5" r="2.2" style="--i:16"/><circle cx="125" cy="57.6" r="2.1" style="--i:17"/><circle cx="129.7" cy="104.5" r="2.9" style="--i:18"/><circle cx="74.8" cy="102.8" r="2.1" style="--i:19"/><circle cx="154.1" cy="103.2" r="2.3" style="--i:20"/><circle cx="100.2" cy="146.7" r="2.3" style="--i:21"/><circle cx="151.1" cy="63.5" r="2.1" style="--i:22"/><circle cx="183.2" cy="188.1" r="1.9" style="--i:23"/><circle cx="88.5" cy="42.1" r="2" style="--i:24"/><circle cx="135.6" cy="141.8" r="2.1" style="--i:25"/><circle cx="51.3" cy="51.5" r="2" style="--i:26"/><circle cx="128.5" cy="77.5" r="1.9" style="--i:27"/><circle cx="76.4" cy="70.7" r="1.9" style="--i:28"/><circle cx="118.7" cy="133" r="2.5" style="--i:29"/><circle cx="114.7" cy="77.3" r="2" style="--i:30"/><circle cx="133.8" cy="101.4" r="1.9" style="--i:31"/><circle cx="136.8" cy="85.6" r="2.5" style="--i:32"/><circle cx="74.9" cy="157" r="2.2" style="--i:33"/><circle cx="84.2" cy="108.7" r="2.4" style="--i:34"/><circle cx="60.9" cy="101.6" r="2.1" style="--i:35"/><circle cx="153.1" cy="125.3" r="1.9" style="--i:36"/><circle cx="96" cy="101.1" r="2" style="--i:37"/><circle cx="65.8" cy="172.9" r="2" style="--i:38"/><circle cx="115" cy="98.8" r="2.3" style="--i:39"/><circle cx="92.1" cy="131.8" r="2.1" style="--i:40"/><circle cx="148.9" cy="31.5" r="2" style="--i:41"/><circle cx="138.7" cy="200.2" r="2" style="--i:42"/><circle cx="95.7" cy="145" r="2.3" style="--i:43"/><circle cx="108.2" cy="69.9" r="2.2" style="--i:44"/><circle cx="202.6" cy="96.4" r="1.9" style="--i:45"/><circle cx="30.2" cy="106.7" r="1.9" style="--i:46"/><circle cx="209.6" cy="134.9" r="1.9" style="--i:47"/><circle cx="126.6" cy="102.4" r="2.1" style="--i:48"/><circle cx="173.3" cy="92.9" r="2.2" style="--i:49"/><circle cx="151.4" cy="174.3" r="2.1" style="--i:50"/><circle cx="115.2" cy="45.1" r="1.9" style="--i:51"/><circle cx="142.3" cy="107.1" r="2.4" style="--i:52"/><circle cx="78.3" cy="158.8" r="2" style="--i:53"/><circle cx="79.5" cy="139.6" r="2.1" style="--i:54"/><circle cx="129.7" cy="98.7" r="2.1" style="--i:55"/><circle cx="185.1" cy="103.8" r="2.1" style="--i:56"/><circle cx="116.3" cy="137.1" r="2.1" style="--i:57"/><circle cx="143.9" cy="60.5" r="2" style="--i:58"/><circle cx="102.3" cy="156.2" r="2" style="--i:59"/><circle cx="123.2" cy="26.9" r="1.9" style="--i:60"/><circle cx="106" cy="213.1" r="1.9" style="--i:61"/><circle cx="178.6" cy="96.2" r="2.1" style="--i:62"/><circle cx="96.5" cy="62.4" r="1.9" style="--i:63"/><circle cx="179.8" cy="155" r="2" style="--i:64"/><circle cx="81.7" cy="180.6" r="1.9" style="--i:65"/><circle cx="75.8" cy="159" r="1.9" style="--i:66"/><circle cx="61.4" cy="107.1" r="2" style="--i:67"/><circle cx="131.5" cy="154.2" r="2" style="--i:68"/><circle cx="175.6" cy="59.2" r="2" style="--i:69"/><circle cx="90.3" cy="192.7" r="1.9" style="--i:70"/><circle cx="174" cy="196" r="1.9" style="--i:71"/><circle cx="149.3" cy="115.3" r="2.2" style="--i:72"/><circle cx="195.8" cy="141.6" r="2" style="--i:73"/><circle cx="191.7" cy="77.7" r="1.8" style="--i:74"/><circle cx="20" cy="91" r="1.9" style="--i:75"/><circle cx="65.8" cy="164.1" r="1.9" style="--i:76"/><circle cx="104.4" cy="77.9" r="2.1" style="--i:77"/><circle cx="178.6" cy="175.1" r="2" style="--i:78"/><circle cx="96.9" cy="79.7" r="2" style="--i:79"/><circle cx="95.4" cy="88.6" r="2" style="--i:80"/><circle cx="114.9" cy="183.8" r="1.9" style="--i:81"/><circle cx="81.3" cy="161.2" r="1.9" style="--i:82"/><circle cx="42.7" cy="115.2" r="1.9" style="--i:83"/><circle cx="115.7" cy="71.5" r="1.9" style="--i:84"/><circle cx="152.1" cy="44" r="1.9" style="--i:85"/><circle cx="99.2" cy="134.2" r="2" style="--i:86"/><circle cx="128.7" cy="36.1" r="2" style="--i:87"/><circle cx="139.3" cy="100.6" r="2" style="--i:88"/><circle cx="32.6" cy="151.3" r="1.9" style="--i:89"/><circle cx="97.5" cy="34.2" r="1.9" style="--i:90"/><circle cx="114" cy="62.6" r="1.9" style="--i:91"/><circle cx="102.5" cy="164.8" r="2.1" style="--i:92"/><circle cx="64.6" cy="74.4" r="1.9" style="--i:93"/><circle cx="62.4" cy="108.7" r="2.1" style="--i:94"/><circle cx="156.8" cy="167.1" r="2.1" style="--i:95"/><circle cx="91.1" cy="148.8" r="1.9" style="--i:96"/><circle cx="128.5" cy="27.2" r="1.9" style="--i:97"/><circle cx="104.2" cy="161.4" r="1.8" style="--i:98"/><circle cx="169.9" cy="181.6" r="2" style="--i:99"/><circle cx="142.6" cy="194.2" r="1.9" style="--i:100"/><circle cx="118" cy="155.5" r="1.9" style="--i:101"/><circle cx="176.9" cy="136.4" r="1.9" style="--i:102"/><circle cx="51.3" cy="179" r="1.9" style="--i:103"/><circle cx="39.7" cy="139.4" r="1.9" style="--i:104"/><circle cx="220" cy="131.5" r="1.9" style="--i:105"/><circle cx="121.7" cy="138.3" r="1.9" style="--i:106"/><circle cx="199.5" cy="137.4" r="1.9" style="--i:107"/><circle cx="22" cy="91" r="1.9" style="--i:108"/><circle cx="35.5" cy="76.4" r="1.8" style="--i:109"/><circle cx="201" cy="156.4" r="2" style="--i:110"/><circle cx="182.8" cy="145.8" r="2" style="--i:111"/><circle cx="204.3" cy="89.3" r="2" style="--i:112"/><circle cx="60.7" cy="192.3" r="1.9" style="--i:113"/><circle cx="186.1" cy="85.2" r="2" style="--i:114"/><circle cx="83.8" cy="84.6" r="1.9" style="--i:115"/><circle cx="175.4" cy="60.3" r="2" style="--i:116"/><circle cx="56.9" cy="118.3" r="1.9" style="--i:117"/><circle cx="81.2" cy="178.5" r="1.9" style="--i:118"/><circle cx="67.9" cy="110.4" r="1.9" style="--i:119"/></g></svg><figcaption>Receptive shells</figcaption></figure>
+            </div>
+            <p class="ch-statement">Senses for everything your organisation already produces.</p>
+            <p class="ch-body">Documents, screenshots, recordings and live telemetry enter through receptive shells. Each layer abstracts a little further — from pixels and waveforms to entities, intent and anomalies — until the signal is something the rest of the organism can act on.</p>
+            <dl class="ch-traits">
+              <div class="trait"><dt>Multimodal</dt><dd>Text, images, audio and streams arrive through one intake.</dd></div>
+              <div class="trait"><dt>Layered</dt><dd>Raw signal is refined in stages you can inspect one by one.</dd></div>
+              <div class="trait"><dt>Grounded</dt><dd>Every conclusion links back to the evidence it came from.</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="chapter" data-cap="reasoning" aria-labelledby="cap-reasoning">
+          <div class="chapter-inner">
+            <div class="ch-head">
+              <div>
+                <p class="ch-idx">04 · Capability</p>
+                <h3 class="ch-name" id="cap-reasoning">Reasoning</h3>
+              </div>
+              <figure class="ch-wiring"><svg class="wiring" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><path class="wire-edges" pathLength="1" d="M108.7 220L103.8 197M108.7 220L128.9 196.8M108.7 220L107.2 172.9M103.8 197L115 169.2M103.8 197L92.5 170.5M103.8 197L97.4 166.1M128.9 196.8L116.8 167.4M128.9 196.8L161.4 159.1M128.9 196.8L162 155.9M107.2 172.9L123.6 129.7M107.2 172.9L130.1 132.7M107.2 172.9L82.8 133.7M115 169.2L95.3 131.1M115 169.2L89.5 126.2M115 169.2L143.6 122.8M92.5 170.5L91.7 128.8M95.3 131.1L91.7 128.8M92.5 170.5L100.3 126.6M91.7 128.8L100.3 126.6M92.5 170.5L68.4 130.2M97.4 166.1L75.6 125M97.4 166.1L106.8 127M97.4 166.1L70.1 124M68.4 130.2L70.1 124M116.8 167.4L93.4 127.3M116.8 167.4L140.3 126M116.8 167.4L95.9 125.4M161.4 159.1L191.1 118.1M161.4 159.1L191.1 118.5M161.4 159.1L178.8 119.1M162 155.9L191.6 114.4M191.1 118.5L191.6 114.4M162 155.9L191.7 113.7M191.6 114.4L191.7 113.7M123.6 129.7L143.8 94.6M123.6 129.7L143.3 93.4M130.1 132.7L118.3 91.9M130.1 132.7L123.4 90.8M130.1 132.7L144.1 95.2M143.8 94.6L144.1 95.2M82.8 133.7L59.4 96.1M82.8 133.7L59.2 96.9M59.4 96.1L59.2 96.9M82.8 133.7L93.1 95.2M95.3 131.1L72.7 77.4M95.3 131.1L76.1 83M72.7 77.4L76.1 83M89.5 126.2L88.5 83.3M89.5 126.2L109.5 77.8M143.6 122.8L170.9 78.7M143.6 122.8L170 76.2M143.6 122.8L160.3 80.5M91.7 128.8L64.5 78.7M91.7 128.8L112.5 83M100.3 126.6L93.8 82.6M88.5 83.3L93.8 82.6M100.3 126.6L85.4 83.7M93.8 82.6L85.4 83.7M68.4 130.2L43.2 81.8M75.6 125L78.2 82.7M75.6 125L78.4 77.4M78.2 82.7L78.4 77.4M75.6 125L74 81.7M106.8 127L93.5 79.5M106.8 127L131.5 78M106.8 127L122.9 80.6M112.5 83L122.9 80.6M70.1 124L43.7 78.8M93.4 127.3L73.1 79.9M93.4 127.3L100.8 77.8M93.4 127.3L95.4 78.5M140.3 126L129.8 82.2M140.3 126L136.8 75.8M131.5 78L136.8 75.8M95.9 125.4L70.1 78.6M95.9 125.4L110.4 79.1M95.9 125.4L70 79.6M191.1 118.1L212.6 73.1M191.1 118.5L217.4 70.3M212.6 73.1L217.4 70.3M178.8 119.1L183.5 75.1M178.8 119.1L204.7 69.9M178.8 119.1L204.6 71M204.7 69.9L204.6 71M191.6 114.4L198.3 72.6M191.7 113.7L217.9 74.6M191.7 113.7L213.4 70.1M143.8 94.6L135.4 57.1M143.8 94.6L163 57.1M143.8 94.6L154.6 58.8M143.3 93.4L162.6 57.6M143.3 93.4L151.3 57.7M118.3 91.9L103.6 57.8M118.3 91.9L127 56.1M123.4 90.8L116.6 57.8M123.4 90.8L135 56.3M144.1 95.2L139 58.4M135 56.3L139 58.4M144.1 95.2L161.9 56.8M59.4 96.1L44.8 60.5M59.4 96.1L40.2 60.7M44.8 60.5L40.2 60.7M59.2 96.9L47.5 59.7M59.2 96.9L46.4 60M93.1 95.2L75.2 57.8M93.1 95.2L75.5 58.2M72.7 77.4L75.6 23.5M72.7 77.4L88.6 26.4M75.6 23.5L88.6 26.4M76.1 83L50.5 20.2M76.1 83L81.6 23.5M75.6 23.5L81.6 23.5M88.5 83.3L65.3 20.4M88.5 83.3L107.1 22.1M109.5 77.8L130.4 20M109.5 77.8L88.1 25.9M170.9 78.7L195.4 24.9M170.9 78.7L170 20.1M170 76.2L195.3 24.3M170 76.2L161.4 26.1M170 20.1L161.4 26.1M170 76.2L162.3 26.4M160.3 80.5L186.1 22.3M64.5 78.7L66.9 24.2M112.5 83L129.2 24.4M112.5 83L109.3 24.4M93.8 82.6L72.3 25.6M93.8 82.6L104.6 22.8M93.8 82.6L102.2 25M104.6 22.8L102.2 25M85.4 83.7L102.9 26.2M102.2 25L102.9 26.2M85.4 83.7L78.8 26.7M81.6 23.5L78.8 26.7M43.2 81.8L22.1 23M43.2 81.8L22.3 24.4M78.2 82.7L57 22.9M50.5 20.2L57 22.9M78.2 82.7L96.2 25.5M102.2 25L96.2 25.5M78.2 82.7L79.9 24.9M78.4 77.4L71.1 21.4M72.3 25.6L71.1 21.4M78.4 77.4L63 24.8M66.9 24.2L63 24.8M78.4 77.4L96.8 25.5"/><g class="wire-nodes"><circle cx="108.7" cy="220" r="5.1" style="--i:0"/><circle cx="103.8" cy="197" r="2.7" style="--i:1"/><circle cx="128.9" cy="196.8" r="2.2" style="--i:2"/><circle cx="107.2" cy="172.9" r="2.1" style="--i:3"/><circle cx="115" cy="169.2" r="1.9" style="--i:4"/><circle cx="92.5" cy="170.5" r="1.9" style="--i:5"/><circle cx="97.4" cy="166.1" r="2.7" style="--i:6"/><circle cx="116.8" cy="167.4" r="2.1" style="--i:7"/><circle cx="161.4" cy="159.1" r="2" style="--i:8"/><circle cx="162" cy="155.9" r="1.8" style="--i:9"/><circle cx="123.6" cy="129.7" r="1.9" style="--i:10"/><circle cx="130.1" cy="132.7" r="2" style="--i:11"/><circle cx="82.8" cy="133.7" r="1.8" style="--i:12"/><circle cx="95.3" cy="131.1" r="1.8" style="--i:13"/><circle cx="89.5" cy="126.2" r="2" style="--i:14"/><circle cx="143.6" cy="122.8" r="2" style="--i:15"/><circle cx="91.7" cy="128.8" r="2" style="--i:16"/><circle cx="100.3" cy="126.6" r="2" style="--i:17"/><circle cx="68.4" cy="130.2" r="2" style="--i:18"/><circle cx="75.6" cy="125" r="2.7" style="--i:19"/><circle cx="106.8" cy="127" r="2" style="--i:20"/><circle cx="70.1" cy="124" r="1.9" style="--i:21"/><circle cx="93.4" cy="127.3" r="1.9" style="--i:22"/><circle cx="140.3" cy="126" r="1.9" style="--i:23"/><circle cx="95.9" cy="125.4" r="1.8" style="--i:24"/><circle cx="191.1" cy="118.1" r="1.8" style="--i:25"/><circle cx="191.1" cy="118.5" r="1.8" style="--i:26"/><circle cx="178.8" cy="119.1" r="2" style="--i:27"/><circle cx="191.6" cy="114.4" r="2" style="--i:28"/><circle cx="191.7" cy="113.7" r="1.8" style="--i:29"/><circle cx="143.8" cy="94.6" r="2" style="--i:30"/><circle cx="143.3" cy="93.4" r="1.9" style="--i:31"/><circle cx="118.3" cy="91.9" r="1.8" style="--i:32"/><circle cx="123.4" cy="90.8" r="1.8" style="--i:33"/><circle cx="144.1" cy="95.2" r="1.8" style="--i:34"/><circle cx="59.4" cy="96.1" r="1.8" style="--i:35"/><circle cx="59.2" cy="96.9" r="2" style="--i:36"/><circle cx="93.1" cy="95.2" r="1.8" style="--i:37"/><circle cx="72.7" cy="77.4" r="1.7" style="--i:38"/><circle cx="76.1" cy="83" r="1.8" style="--i:39"/><circle cx="88.5" cy="83.3" r="1.9" style="--i:40"/><circle cx="109.5" cy="77.8" r="2" style="--i:41"/><circle cx="170.9" cy="78.7" r="1.8" style="--i:42"/><circle cx="170" cy="76.2" r="1.8" style="--i:43"/><circle cx="160.3" cy="80.5" r="2" style="--i:44"/><circle cx="64.5" cy="78.7" r="1.9" style="--i:45"/><circle cx="112.5" cy="83" r="1.9" style="--i:46"/><circle cx="93.8" cy="82.6" r="1.7" style="--i:47"/><circle cx="85.4" cy="83.7" r="1.8" style="--i:48"/><circle cx="43.2" cy="81.8" r="1.9" style="--i:49"/><circle cx="78.2" cy="82.7" r="1.9" style="--i:50"/><circle cx="78.4" cy="77.4" r="2.7" style="--i:51"/><circle cx="74" cy="81.7" r="1.9" style="--i:52"/><circle cx="93.5" cy="79.5" r="1.9" style="--i:53"/><circle cx="131.5" cy="78" r="1.9" style="--i:54"/><circle cx="122.9" cy="80.6" r="2" style="--i:55"/><circle cx="43.7" cy="78.8" r="1.8" style="--i:56"/><circle cx="73.1" cy="79.9" r="1.9" style="--i:57"/><circle cx="100.8" cy="77.8" r="1.8" style="--i:58"/><circle cx="95.4" cy="78.5" r="1.7" style="--i:59"/><circle cx="129.8" cy="82.2" r="1.9" style="--i:60"/><circle cx="136.8" cy="75.8" r="2" style="--i:61"/><circle cx="70.1" cy="78.6" r="1.9" style="--i:62"/><circle cx="110.4" cy="79.1" r="1.8" style="--i:63"/><circle cx="70" cy="79.6" r="2" style="--i:64"/><circle cx="212.6" cy="73.1" r="1.9" style="--i:65"/><circle cx="217.4" cy="70.3" r="2" style="--i:66"/><circle cx="183.5" cy="75.1" r="2" style="--i:67"/><circle cx="204.7" cy="69.9" r="1.9" style="--i:68"/><circle cx="204.6" cy="71" r="1.7" style="--i:69"/><circle cx="198.3" cy="72.6" r="1.8" style="--i:70"/><circle cx="217.9" cy="74.6" r="2" style="--i:71"/><circle cx="213.4" cy="70.1" r="1.8" style="--i:72"/><circle cx="135.4" cy="57.1" r="1.9" style="--i:73"/><circle cx="163" cy="57.1" r="1.8" style="--i:74"/><circle cx="154.6" cy="58.8" r="1.8" style="--i:75"/><circle cx="162.6" cy="57.6" r="1.7" style="--i:76"/><circle cx="151.3" cy="57.7" r="2" style="--i:77"/><circle cx="103.6" cy="57.8" r="1.8" style="--i:78"/><circle cx="127" cy="56.1" r="1.7" style="--i:79"/><circle cx="116.6" cy="57.8" r="1.7" style="--i:80"/><circle cx="135" cy="56.3" r="2" style="--i:81"/><circle cx="139" cy="58.4" r="1.7" style="--i:82"/><circle cx="161.9" cy="56.8" r="1.8" style="--i:83"/><circle cx="44.8" cy="60.5" r="1.7" style="--i:84"/><circle cx="40.2" cy="60.7" r="1.8" style="--i:85"/><circle cx="47.5" cy="59.7" r="2" style="--i:86"/><circle cx="46.4" cy="60" r="2" style="--i:87"/><circle cx="75.2" cy="57.8" r="1.7" style="--i:88"/><circle cx="75.5" cy="58.2" r="2" style="--i:89"/><circle cx="75.6" cy="23.5" r="1.8" style="--i:90"/><circle cx="88.6" cy="26.4" r="1.7" style="--i:91"/><circle cx="50.5" cy="20.2" r="1.9" style="--i:92"/><circle cx="81.6" cy="23.5" r="1.7" style="--i:93"/><circle cx="65.3" cy="20.4" r="1.7" style="--i:94"/><circle cx="107.1" cy="22.1" r="1.7" style="--i:95"/><circle cx="130.4" cy="20" r="1.7" style="--i:96"/><circle cx="88.1" cy="25.9" r="1.7" style="--i:97"/><circle cx="195.4" cy="24.9" r="1.7" style="--i:98"/><circle cx="170" cy="20.1" r="1.8" style="--i:99"/><circle cx="195.3" cy="24.3" r="1.8" style="--i:100"/><circle cx="161.4" cy="26.1" r="1.8" style="--i:101"/><circle cx="162.3" cy="26.4" r="1.8" style="--i:102"/><circle cx="186.1" cy="22.3" r="1.9" style="--i:103"/><circle cx="66.9" cy="24.2" r="1.8" style="--i:104"/><circle cx="129.2" cy="24.4" r="1.9" style="--i:105"/><circle cx="109.3" cy="24.4" r="1.7" style="--i:106"/><circle cx="72.3" cy="25.6" r="1.9" style="--i:107"/><circle cx="104.6" cy="22.8" r="1.7" style="--i:108"/><circle cx="102.2" cy="25" r="1.7" style="--i:109"/><circle cx="102.9" cy="26.2" r="1.7" style="--i:110"/><circle cx="78.8" cy="26.7" r="1.7" style="--i:111"/><circle cx="22.1" cy="23" r="1.9" style="--i:112"/><circle cx="22.3" cy="24.4" r="1.8" style="--i:113"/><circle cx="57" cy="22.9" r="1.8" style="--i:114"/><circle cx="96.2" cy="25.5" r="1.8" style="--i:115"/><circle cx="79.9" cy="24.9" r="1.8" style="--i:116"/><circle cx="71.1" cy="21.4" r="1.9" style="--i:117"/><circle cx="63" cy="24.8" r="1.8" style="--i:118"/><circle cx="96.8" cy="25.5" r="2.7" style="--i:119"/></g></svg><figcaption>Deliberation tree</figcaption></figure>
+            </div>
+            <p class="ch-statement">Thinking you can audit — including the roads not taken.</p>
+            <p class="ch-body">Before it acts, the organism grows a deliberation tree: candidate plans branch, get compared and are pruned. The chosen path is kept beside its alternatives, so you can see why it decided — and where it was unsure.</p>
+            <dl class="ch-traits">
+              <div class="trait"><dt>Branching</dt><dd>Several plans are drafted and weighed before one is chosen.</dd></div>
+              <div class="trait"><dt>Traceable</dt><dd>Each step records its inputs, assumptions and cost.</dd></div>
+              <div class="trait"><dt>Calibrated</dt><dd>Low confidence hands the decision to a person, by design.</dd></div>
+            </dl>
+          </div>
+        </article>
+
+      </div>
+      <div class="cap-readout-wrap" aria-hidden="true">
+        <div class="cap-readout">
+          <p class="crd-label"><span class="crd-dot"></span>Live wiring</p>
+          <p class="crd-word" data-hud="topo-big">Dendritic whole</p>
+          <p class="crd-sub">Same neurons · new connections</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 ANATOMY ============ -->
+  <section class="anatomy solid" id="anatomy" aria-labelledby="anatomy-title">
+    <div class="section-head">
+      <p class="eyebrow"><span class="eyebrow-num">03</span>Anatomy</p>
+      <h2 id="anatomy-title" data-scan>Anatomy of a living system</h2>
+      <p class="section-lede">Five layers, each with a single job. Hover or select a layer to isolate it in the cross-section.</p>
+    </div>
+    <div class="anat-grid">
+      <figure class="plate" data-focus="">
+        <svg class="plate-svg" viewBox="0 0 600 600" role="img" aria-labelledby="plate-title plate-desc">
+  <title id="plate-title">Schematic cross-section of a NEXORA instance</title>
+  <desc id="plate-desc">Five concentric layers: an outer immune layer of sentinels, a double membrane with interface ports, memory vesicles, a curving synapse bus, and the cortex at the centre.</desc>
+  <defs>
+    <radialGradient id="pl-nuc" cx="45%" cy="40%" r="70%"><stop offset="0" stop-color="#7A4DFF" stop-opacity=".42"/><stop offset=".7" stop-color="#29E3F2" stop-opacity=".08"/><stop offset="1" stop-color="#29E3F2" stop-opacity="0"/></radialGradient>
+    <radialGradient id="pl-nuo" cx="40%" cy="35%" r="65%"><stop offset="0" stop-color="#E7E9EE"/><stop offset=".45" stop-color="#29E3F2"/><stop offset="1" stop-color="#7A4DFF" stop-opacity=".2"/></radialGradient>
+    <radialGradient id="pl-halo" cx="50%" cy="50%" r="50%"><stop offset=".55" stop-color="#29E3F2" stop-opacity="0"/><stop offset=".8" stop-color="#29E3F2" stop-opacity=".06"/><stop offset="1" stop-color="#29E3F2" stop-opacity="0"/></radialGradient>
+    <clipPath id="pl-clip"><path d="M394.8 300L394.8 303.7L394.3 307.4L393.4 311.1L392.2 314.6L390.7 318L389 321.4L387.1 324.6L385.2 327.7L383.1 330.7L381.1 333.6L379.1 336.5L377.1 339.3L375.2 342.1L373.2 344.9L371.3 347.6L369.3 350.4L367.3 353.1L365.2 355.7L363 358.2L360.6 360.6L358.2 362.9L355.6 365.1L352.8 367L350 368.9L347.1 370.5L344.2 372.1L341.2 373.5L338.2 374.9L335.2 376.3L332.2 377.7L329.2 379.2L326.2 380.7L323.2 382.3L320.2 384L317 385.7L313.8 387.4L310.5 389.1L307.1 390.6L303.6 392L300 393.2L296.3 394L292.6 394.5L288.8 394.6L285.1 394.2L281.4 393.4L277.9 392.2L274.5 390.5L271.3 388.5L268.2 386.2L265.4 383.6L262.7 380.9L260.2 378.1L257.8 375.3L255.5 372.6L253.3 369.9L251.1 367.3L248.8 364.9L246.5 362.6L244.2 360.4L241.8 358.2L239.3 356.2L236.7 354L234.2 351.9L231.6 349.7L229.2 347.3L226.8 344.9L224.6 342.2L222.5 339.5L220.7 336.6L219 333.5L217.6 330.4L216.3 327.2L215.2 323.9L214.2 320.6L213.3 317.2L212.6 313.8L211.8 310.4L211.2 307L210.5 303.5L209.9 300L209.4 296.4L209 292.8L208.7 289.2L208.6 285.5L208.8 281.9L209.2 278.2L210 274.6L211 271.1L212.5 267.7L214.3 264.5L216.4 261.5L218.9 258.7L221.6 256.1L224.5 253.7L227.5 251.6L230.6 249.6L233.7 247.7L236.7 246L239.7 244.2L242.5 242.5L245.2 240.7L247.7 238.7L250.1 236.7L252.4 234.5L254.6 232.1L256.9 229.6L259.1 227L261.5 224.4L264 221.8L266.6 219.3L269.4 217L272.3 214.8L275.4 212.9L278.7 211.3L282.1 210L285.6 209.1L289.2 208.4L292.8 208.1L296.4 208.1L300 208.3L303.6 208.7L307.1 209.2L310.7 209.9L314.2 210.6L317.6 211.5L321 212.4L324.4 213.3L327.8 214.4L331.2 215.5L334.5 216.8L337.7 218.3L340.8 219.9L343.8 221.8L346.7 223.8L349.4 226.1L351.9 228.6L354.2 231.3L356.3 234.1L358.2 237.1L359.9 240.1L361.5 243.1L363 246.2L364.5 249.1L366 252L367.6 254.8L369.3 257.5L371.1 260.2L373.1 262.8L375.2 265.3L377.4 267.9L379.8 270.6L382.2 273.3L384.6 276.1L386.9 279.1L389 282.3L390.9 285.6L392.5 289.1L393.7 292.6L394.5 296.3L394.8 300Z"/></clipPath>
+  </defs>
+  <circle cx="300" cy="300" r="300" fill="url(#pl-halo)"/>
+  <g class="pl-grid"><circle cx="300" cy="300" r="50"/><circle cx="300" cy="300" r="100"/><circle cx="300" cy="300" r="150"/><circle cx="300" cy="300" r="200"/><circle cx="300" cy="300" r="250"/><circle cx="300" cy="300" r="300"/><line x1="584" y1="300" x2="595" y2="300" class="pl-tick"/><line x1="587.9" y1="325.2" x2="593.9" y2="325.7"/><line x1="584.6" y1="350.2" x2="590.5" y2="351.2"/><line x1="579.2" y1="374.8" x2="584.9" y2="376.4"/><line x1="571.6" y1="398.8" x2="577.2" y2="400.9"/><line x1="561.9" y1="422.1" x2="567.4" y2="424.7"/><line x1="546" y1="442" x2="555.5" y2="447.5" class="pl-tick"/><line x1="536.7" y1="465.8" x2="541.6" y2="469.2"/><line x1="521.4" y1="485.8" x2="526" y2="489.6"/><line x1="504.4" y1="504.4" x2="508.6" y2="508.6"/><line x1="485.8" y1="521.4" x2="489.6" y2="526"/><line x1="465.8" y1="536.7" x2="469.2" y2="541.6"/><line x1="442" y1="546" x2="447.5" y2="555.5" class="pl-tick"/><line x1="422.1" y1="561.9" x2="424.7" y2="567.4"/><line x1="398.8" y1="571.6" x2="400.9" y2="577.2"/><line x1="374.8" y1="579.2" x2="376.4" y2="584.9"/><line x1="350.2" y1="584.6" x2="351.2" y2="590.5"/><line x1="325.2" y1="587.9" x2="325.7" y2="593.9"/><line x1="300" y1="584" x2="300" y2="595" class="pl-tick"/><line x1="274.8" y1="587.9" x2="274.3" y2="593.9"/><line x1="249.8" y1="584.6" x2="248.8" y2="590.5"/><line x1="225.2" y1="579.2" x2="223.6" y2="584.9"/><line x1="201.2" y1="571.6" x2="199.1" y2="577.2"/><line x1="177.9" y1="561.9" x2="175.3" y2="567.4"/><line x1="158" y1="546" x2="152.5" y2="555.5" class="pl-tick"/><line x1="134.2" y1="536.7" x2="130.8" y2="541.6"/><line x1="114.2" y1="521.4" x2="110.4" y2="526"/><line x1="95.6" y1="504.4" x2="91.4" y2="508.6"/><line x1="78.6" y1="485.8" x2="74" y2="489.6"/><line x1="63.3" y1="465.8" x2="58.4" y2="469.2"/><line x1="54" y1="442" x2="44.5" y2="447.5" class="pl-tick"/><line x1="38.1" y1="422.1" x2="32.6" y2="424.7"/><line x1="28.4" y1="398.8" x2="22.8" y2="400.9"/><line x1="20.8" y1="374.8" x2="15.1" y2="376.4"/><line x1="15.4" y1="350.2" x2="9.5" y2="351.2"/><line x1="12.1" y1="325.2" x2="6.1" y2="325.7"/><line x1="16" y1="300" x2="5" y2="300" class="pl-tick"/><line x1="12.1" y1="274.8" x2="6.1" y2="274.3"/><line x1="15.4" y1="249.8" x2="9.5" y2="248.8"/><line x1="20.8" y1="225.2" x2="15.1" y2="223.6"/><line x1="28.4" y1="201.2" x2="22.8" y2="199.1"/><line x1="38.1" y1="177.9" x2="32.6" y2="175.3"/><line x1="54" y1="158" x2="44.5" y2="152.5" class="pl-tick"/><line x1="63.3" y1="134.2" x2="58.4" y2="130.8"/><line x1="78.6" y1="114.2" x2="74" y2="110.4"/><line x1="95.6" y1="95.6" x2="91.4" y2="91.4"/><line x1="114.2" y1="78.6" x2="110.4" y2="74"/><line x1="134.2" y1="63.3" x2="130.8" y2="58.4"/><line x1="158" y1="54" x2="152.5" y2="44.5" class="pl-tick"/><line x1="177.9" y1="38.1" x2="175.3" y2="32.6"/><line x1="201.2" y1="28.4" x2="199.1" y2="22.8"/><line x1="225.2" y1="20.8" x2="223.6" y2="15.1"/><line x1="249.8" y1="15.4" x2="248.8" y2="9.5"/><line x1="274.8" y1="12.1" x2="274.3" y2="6.1"/><line x1="300" y1="16" x2="300" y2="5" class="pl-tick"/><line x1="325.2" y1="12.1" x2="325.7" y2="6.1"/><line x1="350.2" y1="15.4" x2="351.2" y2="9.5"/><line x1="374.8" y1="20.8" x2="376.4" y2="15.1"/><line x1="398.8" y1="28.4" x2="400.9" y2="22.8"/><line x1="422.1" y1="38.1" x2="424.7" y2="32.6"/><line x1="442" y1="54" x2="447.5" y2="44.5" class="pl-tick"/><line x1="465.8" y1="63.3" x2="469.2" y2="58.4"/><line x1="485.8" y1="78.6" x2="489.6" y2="74"/><line x1="504.4" y1="95.6" x2="508.6" y2="91.4"/><line x1="521.4" y1="114.2" x2="526" y2="110.4"/><line x1="536.7" y1="134.2" x2="541.6" y2="130.8"/><line x1="546" y1="158" x2="555.5" y2="152.5" class="pl-tick"/><line x1="561.9" y1="177.9" x2="567.4" y2="175.3"/><line x1="571.6" y1="201.2" x2="577.2" y2="199.1"/><line x1="579.2" y1="225.2" x2="584.9" y2="223.6"/><line x1="584.6" y1="249.8" x2="590.5" y2="248.8"/><line x1="587.9" y1="274.8" x2="593.9" y2="274.3"/><line x1="300" y1="0" x2="300" y2="600"/><line x1="0" y1="300" x2="600" y2="300"/></g>
+  <g class="pl-layer" data-layer="immune">
+    <circle class="pl-s pl-dash" cx="300" cy="300" r="268"/>
+    <g class="pl-spin pl-sentinels"><path d="M572 323.8L569.1 327.9L564.1 327.5L562 322.9L564.9 318.8L569.8 319.3Z" class="pl-hot"/><path d="M563.7 370.7L560.2 374.2L555.3 372.9L554 368.1L557.6 364.5L562.4 365.8Z"/><path d="M547.4 415.4L543.3 418.2L538.8 416.1L538.4 411.1L542.5 408.3L547 410.4Z"/><path d="M523.6 456.6L519.1 458.7L515 455.8L515.4 450.9L520 448.7L524.1 451.6Z"/><path d="M493 493L488.2 494.3L484.7 490.8L486 486L490.8 484.7L494.3 488.2Z"/><path d="M456.6 523.6L451.6 524.1L448.7 520L450.9 515.4L455.8 515L458.7 519.1Z"/><path d="M415.4 547.4L410.4 547L408.3 542.5L411.1 538.4L416.1 538.8L418.2 543.3Z" class="pl-hot"/><path d="M370.7 563.7L365.8 562.4L364.5 557.6L368.1 554L372.9 555.3L374.2 560.2Z"/><path d="M323.8 572L319.3 569.8L318.8 564.9L322.9 562L327.5 564.1L327.9 569.1Z"/><path d="M276.2 572L272.1 569.1L272.5 564.1L277.1 562L281.2 564.9L280.7 569.8Z"/><path d="M229.3 563.7L225.8 560.2L227.1 555.3L231.9 554L235.5 557.6L234.2 562.4Z"/><path d="M184.6 547.4L181.8 543.3L183.9 538.8L188.9 538.4L191.7 542.5L189.6 547Z"/><path d="M143.4 523.6L141.3 519.1L144.2 515L149.1 515.4L151.3 520L148.4 524.1Z" class="pl-hot"/><path d="M107 493L105.7 488.2L109.2 484.7L114 486L115.3 490.8L111.8 494.3Z"/><path d="M76.4 456.6L75.9 451.6L80 448.7L84.6 450.9L85 455.8L80.9 458.7Z"/><path d="M52.6 415.4L53 410.4L57.5 408.3L61.6 411.1L61.2 416.1L56.7 418.2Z"/><path d="M36.3 370.7L37.6 365.8L42.4 364.5L46 368.1L44.7 372.9L39.8 374.2Z"/><path d="M28 323.8L30.2 319.3L35.1 318.8L38 322.9L35.9 327.5L30.9 327.9Z"/><path d="M28 276.2L30.9 272.1L35.9 272.5L38 277.1L35.1 281.2L30.2 280.7Z" class="pl-hot"/><path d="M36.3 229.3L39.8 225.8L44.7 227.1L46 231.9L42.4 235.5L37.6 234.2Z"/><path d="M52.6 184.6L56.7 181.8L61.2 183.9L61.6 188.9L57.5 191.7L53 189.6Z"/><path d="M76.4 143.4L80.9 141.3L85 144.2L84.6 149.1L80 151.3L75.9 148.4Z"/><path d="M107 107L111.8 105.7L115.3 109.2L114 114L109.2 115.3L105.7 111.8Z"/><path d="M143.4 76.4L148.4 75.9L151.3 80L149.1 84.6L144.2 85L141.3 80.9Z"/><path d="M184.6 52.6L189.6 53L191.7 57.5L188.9 61.6L183.9 61.2L181.8 56.7Z" class="pl-hot"/><path d="M229.3 36.3L234.2 37.6L235.5 42.4L231.9 46L227.1 44.7L225.8 39.8Z"/><path d="M276.2 28L280.7 30.2L281.2 35.1L277.1 38L272.5 35.9L272.1 30.9Z"/><path d="M323.8 28L327.9 30.9L327.5 35.9L322.9 38L318.8 35.1L319.3 30.2Z"/><path d="M370.7 36.3L374.2 39.8L372.9 44.7L368.1 46L364.5 42.4L365.8 37.6Z"/><path d="M415.4 52.6L418.2 56.7L416.1 61.2L411.1 61.6L408.3 57.5L410.4 53Z"/><path d="M456.6 76.4L458.7 80.9L455.8 85L450.9 84.6L448.7 80L451.6 75.9Z" class="pl-hot"/><path d="M493 107L494.3 111.8L490.8 115.3L486 114L484.7 109.2L488.2 105.7Z"/><path d="M523.6 143.4L524.1 148.4L520 151.3L515.4 149.1L515 144.2L519.1 141.3Z"/><path d="M547.4 184.6L547 189.6L542.5 191.7L538.4 188.9L538.8 183.9L543.3 181.8Z"/><path d="M563.7 229.3L562.4 234.2L557.6 235.5L554 231.9L555.3 227.1L560.2 225.8Z"/><path d="M572 276.2L569.8 280.7L564.9 281.2L562 277.1L564.1 272.5L569.1 272.1Z"/></g>
+    <g class="pl-mark" transform="translate(465 88.8)"><circle r="12"/><text y="0.5">05</text></g>
+  </g>
+  <g class="pl-layer" data-layer="membrane">
+    <path class="pl-s" d="M541.2 300L542.3 309.5L542.7 319.1L542.3 328.7L541.1 338.2L539.2 347.6L536.5 356.8L533.3 365.8L529.5 374.6L525.4 383.2L521 391.5L516.4 399.7L511.6 407.8L506.7 415.8L501.7 423.6L496.6 431.3L491.2 438.9L485.6 446.3L479.7 453.5L473.5 460.4L466.9 466.9L460 473.1L452.9 479L445.4 484.5L437.8 489.7L430 494.6L422.2 499.4L414.3 504.1L406.3 508.7L398.3 513.3L390.3 517.9L382.1 522.5L373.7 526.9L365.2 531L356.4 534.8L347.4 538.1L338.1 540.8L328.7 542.8L319.2 544L309.6 544.3L300 543.9L290.5 542.7L281 540.8L271.8 538.4L262.7 535.6L253.7 532.6L244.9 529.3L236.3 526L227.6 522.7L219.1 519.3L210.6 515.9L202.1 512.4L193.6 508.8L185.3 504.8L177.1 500.6L169 496L161.2 491L153.7 485.6L146.4 479.8L139.4 473.7L132.7 467.3L126.3 460.6L120 453.8L113.8 446.8L107.8 439.6L101.9 432.4L96.1 425L90.4 417.4L85 409.5L80 401.4L75.4 393L71.3 384.4L67.9 375.4L65.2 366.2L63.3 356.8L62.2 347.3L61.8 337.7L62 328.2L62.7 318.7L63.8 309.3L65.2 300L66.6 290.8L68.1 281.8L69.6 272.7L71 263.7L72.3 254.7L73.7 245.7L75.2 236.6L76.8 227.5L78.8 218.4L81.2 209.4L84.1 200.5L87.5 191.7L91.4 183.2L95.9 174.9L100.8 166.9L106.1 159.1L111.8 151.6L117.8 144.4L124 137.3L130.3 130.3L136.9 123.6L143.7 117L150.7 110.7L158 104.6L165.6 98.8L173.5 93.6L181.7 88.8L190.2 84.6L199.1 81.1L208.1 78.2L217.3 75.9L226.6 74.1L235.9 72.9L245.3 72L254.5 71.3L263.7 70.7L272.8 70.1L281.9 69.5L290.9 68.7L300 67.9L309.2 67.1L318.4 66.3L327.7 65.7L337.1 65.5L346.6 65.7L356.1 66.5L365.5 67.9L374.7 70L383.8 72.8L392.7 76.2L401.4 80.2L409.7 84.6L417.9 89.5L425.8 94.8L433.5 100.2L441 105.9L448.4 111.8L455.6 117.9L462.6 124.1L469.3 130.7L475.8 137.5L481.9 144.6L487.6 152.1L492.9 159.9L497.7 167.9L501.9 176.3L505.7 184.8L509.2 193.4L512.3 202.1L515.1 210.9L517.9 219.6L520.6 228.3L523.4 237L526.2 245.7L529 254.4L531.9 263.3L534.7 272.2L537.2 281.3L539.4 290.6L541.2 300Z"/><path class="pl-s" d="M525.2 300L526.3 308.9L526.7 317.8L526.4 326.8L525.3 335.7L523.5 344.5L521 353.1L517.9 361.4L514.3 369.6L510.4 377.6L506.2 385.4L501.8 393L497.3 400.6L492.8 408L488.1 415.3L483.3 422.5L478.3 429.5L473.1 436.4L467.5 443.1L461.7 449.5L455.6 455.6L449.2 461.4L442.5 466.8L435.5 471.9L428.4 476.7L421.2 481.3L413.8 485.8L406.5 490.1L399.1 494.5L391.6 498.8L384.1 503.1L376.5 507.4L368.8 511.6L360.8 515.6L352.6 519.3L344.2 522.4L335.6 525L326.9 526.9L317.9 528L309 528.4L300 527.9L291.1 526.7L282.3 524.9L273.7 522.5L265.2 519.8L256.9 516.9L248.7 513.8L240.6 510.6L232.6 507.5L224.6 504.3L216.7 501.1L208.8 497.9L200.9 494.5L193.1 490.9L185.4 487L177.9 482.7L170.6 478.1L163.6 473L156.8 467.7L150.3 461.9L144.1 455.9L138 449.7L132.1 443.4L126.4 436.9L120.7 430.2L115.2 423.5L109.7 416.6L104.4 409.5L99.3 402.3L94.5 394.7L90.2 386.9L86.3 378.8L83.1 370.5L80.6 361.9L78.9 353.1L77.9 344.2L77.6 335.2L77.9 326.3L78.7 317.4L79.8 308.7L81.2 300L82.6 291.5L84.1 283L85.5 274.6L86.8 266.2L88 257.8L89.2 249.4L90.5 240.9L92 232.4L93.8 223.9L96 215.5L98.6 207.2L101.7 199L105.4 191L109.5 183.3L114.1 175.8L119.1 168.5L124.4 161.5L129.9 154.7L135.7 148.1L141.7 141.7L147.8 135.3L154.1 129.2L160.6 123.2L167.4 117.5L174.5 112.1L181.8 107.2L189.5 102.7L197.5 98.9L205.8 95.6L214.2 92.9L222.9 90.9L231.6 89.4L240.3 88.3L249 87.5L257.6 87L266.2 86.5L274.7 86L283.1 85.4L291.5 84.7L300 83.9L308.5 83L317.1 82.2L325.8 81.6L334.6 81.3L343.5 81.4L352.3 82L361.1 83.3L369.8 85.2L378.3 87.8L386.6 90.9L394.7 94.7L402.5 98.9L410 103.5L417.4 108.4L424.6 113.5L431.6 118.9L438.5 124.4L445.2 130L451.7 135.9L458 142L464 148.4L469.8 155L475.1 162L479.9 169.3L484.3 176.8L488.3 184.6L491.8 192.6L494.9 200.7L497.7 208.8L500.4 217L502.9 225.2L505.4 233.3L508 241.3L510.6 249.4L513.4 257.6L516.1 265.8L518.8 274.1L521.3 282.6L523.5 291.2L525.2 300Z"/>
+    <g class="pl-dot"><circle cx="541.2" cy="300" r="2.1"/><circle cx="525.2" cy="300" r="2.1"/><circle cx="542.6" cy="315.9" r="2.1"/><circle cx="526.7" cy="314.9" r="2.1"/><circle cx="542" cy="331.9" r="2.1"/><circle cx="526.1" cy="329.8" r="2.1"/><circle cx="539.2" cy="347.6" r="2.1"/><circle cx="523.5" cy="344.5" r="2.1"/><circle cx="534.4" cy="362.8" r="2.1"/><circle cx="519" cy="358.7" r="2.1"/><circle cx="528.2" cy="377.5" r="2.1"/><circle cx="513" cy="372.3" r="2.1"/><circle cx="521" cy="391.5" r="2.1"/><circle cx="506.2" cy="385.4" r="2.1"/><circle cx="513.2" cy="405.1" r="2.1"/><circle cx="498.9" cy="398.1" r="2.1"/><circle cx="505.1" cy="418.4" r="2.1"/><circle cx="491.2" cy="410.4" r="2.1"/><circle cx="496.6" cy="431.3" r="2.1"/><circle cx="483.3" cy="422.5" r="2.1"/><circle cx="487.5" cy="443.9" r="2.1"/><circle cx="474.8" cy="434.1" r="2.1"/><circle cx="477.7" cy="455.8" r="2.1"/><circle cx="465.6" cy="445.3" r="2.1"/><circle cx="466.9" cy="466.9" r="2.1"/><circle cx="455.6" cy="455.6" r="2.1"/><circle cx="455.3" cy="477.1" r="2.1"/><circle cx="444.7" cy="465" r="2.1"/><circle cx="442.9" cy="486.2" r="2.1"/><circle cx="433.2" cy="473.5" r="2.1"/><circle cx="430" cy="494.6" r="2.1"/><circle cx="421.2" cy="481.3" r="2.1"/><circle cx="416.9" cy="502.5" r="2.1"/><circle cx="408.9" cy="488.7" r="2.1"/><circle cx="403.7" cy="510.3" r="2.1"/><circle cx="396.6" cy="495.9" r="2.1"/><circle cx="390.3" cy="517.9" r="2.1"/><circle cx="384.1" cy="503.1" r="2.1"/><circle cx="376.5" cy="525.4" r="2.1"/><circle cx="371.4" cy="510.3" r="2.1"/><circle cx="362.3" cy="532.3" r="2.1"/><circle cx="358.1" cy="516.9" r="2.1"/><circle cx="347.4" cy="538.1" r="2.1"/><circle cx="344.2" cy="522.4" r="2.1"/><circle cx="331.9" cy="542.2" r="2.1"/><circle cx="329.8" cy="526.4" r="2.1"/><circle cx="316" cy="544.2" r="2.1"/><circle cx="315" cy="528.2" r="2.1"/><circle cx="300" cy="543.9" r="2.1"/><circle cx="300" cy="527.9" r="2.1"/><circle cx="284.2" cy="541.5" r="2.1"/><circle cx="285.2" cy="525.5" r="2.1"/><circle cx="268.7" cy="537.5" r="2.1"/><circle cx="270.8" cy="521.7" r="2.1"/><circle cx="253.7" cy="532.6" r="2.1"/><circle cx="256.9" cy="516.9" r="2.1"/><circle cx="239.1" cy="527.1" r="2.1"/><circle cx="243.3" cy="511.7" r="2.1"/><circle cx="224.8" cy="521.6" r="2.1"/><circle cx="229.9" cy="506.4" r="2.1"/><circle cx="210.6" cy="515.9" r="2.1"/><circle cx="216.7" cy="501.1" r="2.1"/><circle cx="196.4" cy="510" r="2.1"/><circle cx="203.5" cy="495.7" r="2.1"/><circle cx="182.5" cy="503.5" r="2.1"/><circle cx="190.5" cy="489.6" r="2.1"/><circle cx="169" cy="496" r="2.1"/><circle cx="177.9" cy="482.7" r="2.1"/><circle cx="156.2" cy="487.5" r="2.1"/><circle cx="165.9" cy="474.8" r="2.1"/><circle cx="144.1" cy="477.8" r="2.1"/><circle cx="154.6" cy="465.8" r="2.1"/><circle cx="132.7" cy="467.3" r="2.1"/><circle cx="144.1" cy="455.9" r="2.1"/><circle cx="122" cy="456.1" r="2.1"/><circle cx="134.1" cy="445.5" r="2.1"/><circle cx="111.8" cy="444.4" r="2.1"/><circle cx="124.5" cy="434.7" r="2.1"/><circle cx="101.9" cy="432.4" r="2.1"/><circle cx="115.2" cy="423.5" r="2.1"/><circle cx="92.3" cy="419.9" r="2.1"/><circle cx="106.1" cy="411.9" r="2.1"/><circle cx="83.3" cy="406.9" r="2.1"/><circle cx="97.7" cy="399.8" r="2.1"/><circle cx="75.4" cy="393" r="2.1"/><circle cx="90.2" cy="386.9" r="2.1"/><circle cx="69" cy="378.4" r="2.1"/><circle cx="84.1" cy="373.3" r="2.1"/><circle cx="64.5" cy="363.1" r="2.1"/><circle cx="80" cy="359" r="2.1"/><circle cx="62.2" cy="347.3" r="2.1"/><circle cx="77.9" cy="344.2" r="2.1"/><circle cx="61.8" cy="331.4" r="2.1"/><circle cx="77.7" cy="329.3" r="2.1"/><circle cx="63" cy="315.5" r="2.1"/><circle cx="79" cy="314.5" r="2.1"/><circle cx="65.2" cy="300" r="2.1"/><circle cx="81.2" cy="300" r="2.1"/><circle cx="67.6" cy="284.8" r="2.1"/><circle cx="83.6" cy="285.8" r="2.1"/><circle cx="70.1" cy="269.7" r="2.1"/><circle cx="85.9" cy="271.8" r="2.1"/><circle cx="72.3" cy="254.7" r="2.1"/><circle cx="88" cy="257.8" r="2.1"/><circle cx="74.6" cy="239.6" r="2.1"/><circle cx="90.1" cy="243.8" r="2.1"/><circle cx="77.4" cy="224.5" r="2.1"/><circle cx="92.6" cy="229.6" r="2.1"/><circle cx="81.2" cy="209.4" r="2.1"/><circle cx="96" cy="215.5" r="2.1"/><circle cx="86.3" cy="194.6" r="2.1"/><circle cx="100.6" cy="201.7" r="2.1"/><circle cx="92.9" cy="180.4" r="2.1"/><circle cx="106.7" cy="188.4" r="2.1"/><circle cx="100.8" cy="166.9" r="2.1"/><circle cx="114.1" cy="175.8" r="2.1"/><circle cx="109.9" cy="154.1" r="2.1"/><circle cx="122.6" cy="163.9" r="2.1"/><circle cx="119.8" cy="142" r="2.1"/><circle cx="131.8" cy="152.5" r="2.1"/><circle cx="130.3" cy="130.3" r="2.1"/><circle cx="141.7" cy="141.7" r="2.1"/><circle cx="141.4" cy="119.2" r="2.1"/><circle cx="152" cy="131.2" r="2.1"/><circle cx="153.1" cy="108.6" r="2.1"/><circle cx="162.9" cy="121.3" r="2.1"/><circle cx="165.6" cy="98.8" r="2.1"/><circle cx="174.5" cy="112.1" r="2.1"/><circle cx="178.9" cy="90.3" r="2.1"/><circle cx="186.9" cy="104.2" r="2.1"/><circle cx="193.2" cy="83.3" r="2.1"/><circle cx="200.2" cy="97.7" r="2.1"/><circle cx="208.1" cy="78.2" r="2.1"/><circle cx="214.2" cy="92.9" r="2.1"/><circle cx="223.5" cy="74.7" r="2.1"/><circle cx="228.7" cy="89.8" r="2.1"/><circle cx="239.1" cy="72.6" r="2.1"/><circle cx="243.2" cy="88" r="2.1"/><circle cx="254.5" cy="71.3" r="2.1"/><circle cx="257.6" cy="87" r="2.1"/><circle cx="269.8" cy="70.3" r="2.1"/><circle cx="271.8" cy="86.2" r="2.1"/><circle cx="284.9" cy="69.2" r="2.1"/><circle cx="285.9" cy="85.2" r="2.1"/><circle cx="300" cy="67.9" r="2.1"/><circle cx="300" cy="83.9" r="2.1"/><circle cx="315.3" cy="66.5" r="2.1"/><circle cx="314.3" cy="82.5" r="2.1"/><circle cx="330.9" cy="65.6" r="2.1"/><circle cx="328.8" cy="81.5" r="2.1"/><circle cx="346.6" cy="65.7" r="2.1"/><circle cx="343.5" cy="81.4" r="2.1"/><circle cx="362.3" cy="67.3" r="2.1"/><circle cx="358.2" cy="82.8" r="2.1"/><circle cx="377.8" cy="70.8" r="2.1"/><circle cx="372.6" cy="86" r="2.1"/><circle cx="392.7" cy="76.2" r="2.1"/><circle cx="386.6" cy="90.9" r="2.1"/><circle cx="407" cy="83.1" r="2.1"/><circle cx="399.9" cy="97.4" r="2.1"/><circle cx="420.5" cy="91.2" r="2.1"/><circle cx="412.5" cy="105.1" r="2.1"/><circle cx="433.5" cy="100.2" r="2.1"/><circle cx="424.6" cy="113.5" r="2.1"/><circle cx="445.9" cy="109.8" r="2.1"/><circle cx="436.2" cy="122.5" r="2.1"/><circle cx="457.9" cy="119.9" r="2.1"/><circle cx="447.4" cy="132" r="2.1"/><circle cx="469.3" cy="130.7" r="2.1"/><circle cx="458" cy="142" r="2.1"/><circle cx="479.9" cy="142.2" r="2.1"/><circle cx="467.9" cy="152.8" r="2.1"/><circle cx="489.4" cy="154.6" r="2.1"/><circle cx="476.7" cy="164.4" r="2.1"/><circle cx="497.7" cy="167.9" r="2.1"/><circle cx="484.3" cy="176.8" r="2.1"/><circle cx="504.5" cy="181.9" r="2.1"/><circle cx="490.7" cy="189.9" r="2.1"/><circle cx="510.2" cy="196.3" r="2.1"/><circle cx="495.9" cy="203.4" r="2.1"/><circle cx="515.1" cy="210.9" r="2.1"/><circle cx="500.4" cy="217" r="2.1"/><circle cx="519.7" cy="225.4" r="2.1"/><circle cx="504.6" cy="230.6" r="2.1"/><circle cx="524.3" cy="239.9" r="2.1"/><circle cx="508.8" cy="244" r="2.1"/><circle cx="529" cy="254.4" r="2.1"/><circle cx="513.4" cy="257.6" r="2.1"/><circle cx="533.8" cy="269.2" r="2.1"/><circle cx="517.9" cy="271.3" r="2.1"/><circle cx="538" cy="284.4" r="2.1"/><circle cx="522.1" cy="285.4" r="2.1"/></g>
+    <g class="pl-port"><rect x="-6" y="-15" width="12" height="30" rx="2" transform="translate(518.7 371.1) rotate(108)"/><rect x="-6" y="-15" width="12" height="30" rx="2" transform="translate(404.4 504.9) rotate(153)"/><rect x="-6" y="-15" width="12" height="30" rx="2" transform="translate(213.8 513.3) rotate(202)"/><rect x="-6" y="-15" width="12" height="30" rx="2" transform="translate(98.8 411.5) rotate(241)"/><rect x="-6" y="-15" width="12" height="30" rx="2" transform="translate(78.9 236.6) rotate(286)"/><rect x="-6" y="-15" width="12" height="30" rx="2" transform="translate(192 96.9) rotate(332)"/><rect x="-6" y="-15" width="12" height="30" rx="2" transform="translate(371.1 81.3) rotate(378)"/><rect x="-6" y="-15" width="12" height="30" rx="2" transform="translate(504.9 195.6) rotate(423)"/></g>
+    <g class="pl-mark" transform="translate(93.3 199.2)"><circle r="12"/><text y="0.5">01</text></g>
+  </g>
+  <g class="pl-layer" data-layer="memory"><circle class="pl-u" cx="446.2" cy="365.1" r="11"/><circle class="pl-u pl-thin" cx="446.2" cy="365.1" r="6.1"/><circle class="pl-ufill" cx="446.2" cy="365.1" r="2.2"/><circle class="pl-u" cx="425.8" cy="439.7" r="16"/><circle class="pl-u pl-thin" cx="425.8" cy="439.7" r="8.8"/><circle class="pl-ufill" cx="425.8" cy="439.7" r="2.2"/><circle class="pl-u" cx="351.3" cy="441" r="21"/><circle class="pl-u pl-thin" cx="351.3" cy="441" r="11.6"/><circle class="pl-ufill" cx="351.3" cy="441" r="2.2"/><circle class="pl-u" cx="136.8" cy="365.9" r="11"/><circle class="pl-u pl-thin" cx="136.8" cy="365.9" r="6.1"/><circle class="pl-ufill" cx="136.8" cy="365.9" r="2.2"/><circle class="pl-u" cx="105.1" cy="279.5" r="16"/><circle class="pl-u pl-thin" cx="105.1" cy="279.5" r="8.8"/><circle class="pl-ufill" cx="105.1" cy="279.5" r="2.2"/><circle class="pl-u" cx="169" cy="211.6" r="21"/><circle class="pl-u pl-thin" cx="169" cy="211.6" r="11.6"/><circle class="pl-ufill" cx="169" cy="211.6" r="2.2"/><circle class="pl-u" cx="391" cy="142.4" r="11"/><circle class="pl-u pl-thin" cx="391" cy="142.4" r="6.1"/><circle class="pl-ufill" cx="391" cy="142.4" r="2.2"/><circle class="pl-u" cx="418.2" cy="207.7" r="16"/><circle class="pl-u pl-thin" cx="418.2" cy="207.7" r="8.8"/><circle class="pl-ufill" cx="418.2" cy="207.7" r="2.2"/><circle class="pl-u" cx="484.4" cy="254" r="21"/><circle class="pl-u pl-thin" cx="484.4" cy="254" r="11.6"/><circle class="pl-ufill" cx="484.4" cy="254" r="2.2"/><g class="pl-mark" transform="translate(361.3 467)"><circle r="12"/><text y="0.5">03</text></g></g>
+  <g class="pl-layer" data-layer="bus"><g class="pl-c"><path d="M447.6 321.8Q381.7 292.1 403.9 253.8"/><path d="M447.6 321.8Q390.4 342.3 430.6 408.2"/><path d="M447.6 321.8L395 314" class="pl-thin"/><path d="M430.6 408.2Q369.5 378.2 383.3 432.4"/><path d="M383.3 432.4Q330 396.7 308.9 465.2"/><path d="M308.9 465.2Q276.2 395 217.8 427.2"/><path d="M308.9 465.2L305.2 395.9" class="pl-thin"/><path d="M217.8 427.2Q224.9 379.2 151 416.6"/><path d="M151 416.6Q207.4 340.5 164 308.1"/><path d="M164 308.1Q207.8 288.3 152.4 256"/><path d="M164 308.1L204.2 305.7" class="pl-thin"/><path d="M152.4 256Q218.5 244.1 197 172.1"/><path d="M197 172.1Q249.1 212.4 246.5 158.5"/><path d="M246.5 158.5Q294.3 219.3 336 193.2"/><path d="M246.5 158.5L266 210.2" class="pl-thin"/><path d="M336 193.2Q336.3 238.9 375.5 218.8"/><path d="M336 193.2Q345.5 250.3 403.9 253.8"/><path d="M375.5 218.8Q358.3 258.6 403.9 253.8"/><path d="M403.9 253.8L387.7 261" class="pl-thin"/></g><g class="pl-cfill"><circle cx="447.6" cy="321.8" r="3.4"/><circle cx="430.6" cy="408.2" r="3.4"/><circle cx="383.3" cy="432.4" r="3.4"/><circle cx="308.9" cy="465.2" r="3.4"/><circle cx="217.8" cy="427.2" r="3.4"/><circle cx="151" cy="416.6" r="3.4"/><circle cx="164" cy="308.1" r="3.4"/><circle cx="152.4" cy="256" r="3.4"/><circle cx="197" cy="172.1" r="3.4"/><circle cx="246.5" cy="158.5" r="3.4"/><circle cx="336" cy="193.2" r="3.4"/><circle cx="375.5" cy="218.8" r="3.4"/><circle cx="403.9" cy="253.8" r="3.4"/></g><g class="pl-mark" transform="translate(233.8 411.2)"><circle r="12"/><text y="0.5">04</text></g></g>
+  <g class="pl-layer" data-layer="cortex">
+    <path class="pl-nucleus" d="M394.8 300L394.8 303.7L394.3 307.4L393.4 311.1L392.2 314.6L390.7 318L389 321.4L387.1 324.6L385.2 327.7L383.1 330.7L381.1 333.6L379.1 336.5L377.1 339.3L375.2 342.1L373.2 344.9L371.3 347.6L369.3 350.4L367.3 353.1L365.2 355.7L363 358.2L360.6 360.6L358.2 362.9L355.6 365.1L352.8 367L350 368.9L347.1 370.5L344.2 372.1L341.2 373.5L338.2 374.9L335.2 376.3L332.2 377.7L329.2 379.2L326.2 380.7L323.2 382.3L320.2 384L317 385.7L313.8 387.4L310.5 389.1L307.1 390.6L303.6 392L300 393.2L296.3 394L292.6 394.5L288.8 394.6L285.1 394.2L281.4 393.4L277.9 392.2L274.5 390.5L271.3 388.5L268.2 386.2L265.4 383.6L262.7 380.9L260.2 378.1L257.8 375.3L255.5 372.6L253.3 369.9L251.1 367.3L248.8 364.9L246.5 362.6L244.2 360.4L241.8 358.2L239.3 356.2L236.7 354L234.2 351.9L231.6 349.7L229.2 347.3L226.8 344.9L224.6 342.2L222.5 339.5L220.7 336.6L219 333.5L217.6 330.4L216.3 327.2L215.2 323.9L214.2 320.6L213.3 317.2L212.6 313.8L211.8 310.4L211.2 307L210.5 303.5L209.9 300L209.4 296.4L209 292.8L208.7 289.2L208.6 285.5L208.8 281.9L209.2 278.2L210 274.6L211 271.1L212.5 267.7L214.3 264.5L216.4 261.5L218.9 258.7L221.6 256.1L224.5 253.7L227.5 251.6L230.6 249.6L233.7 247.7L236.7 246L239.7 244.2L242.5 242.5L245.2 240.7L247.7 238.7L250.1 236.7L252.4 234.5L254.6 232.1L256.9 229.6L259.1 227L261.5 224.4L264 221.8L266.6 219.3L269.4 217L272.3 214.8L275.4 212.9L278.7 211.3L282.1 210L285.6 209.1L289.2 208.4L292.8 208.1L296.4 208.1L300 208.3L303.6 208.7L307.1 209.2L310.7 209.9L314.2 210.6L317.6 211.5L321 212.4L324.4 213.3L327.8 214.4L331.2 215.5L334.5 216.8L337.7 218.3L340.8 219.9L343.8 221.8L346.7 223.8L349.4 226.1L351.9 228.6L354.2 231.3L356.3 234.1L358.2 237.1L359.9 240.1L361.5 243.1L363 246.2L364.5 249.1L366 252L367.6 254.8L369.3 257.5L371.1 260.2L373.1 262.8L375.2 265.3L377.4 267.9L379.8 270.6L382.2 273.3L384.6 276.1L386.9 279.1L389 282.3L390.9 285.6L392.5 289.1L393.7 292.6L394.5 296.3L394.8 300Z"/>
+    <g class="pl-folds" clip-path="url(#pl-clip)"><path d="M196 234L200 233L204 230.4L208 227.3L212 224.9L216 223.7L220 223.5L224 223.7L228 223.2L232 221.4L236 218.1L240 214.2L244 210.8L248 209.2L252 209.9L256 213L260 217.4L264 221.9L268 225.2L272 226.8L276 226.9L280 226.3L284 226.1L288 226.8L292 228.7L296 230.8L300 232.2L304 231.8L308 229.2L312 224.8L316 219.6L320 215.1L324 212.3L328 211.7L332 213L336 215.2L340 217.1L344 217.9L348 217.7L352 217.1L356 217.1L360 218.6L364 221.8L368 226.2L372 230.7L376 233.9L380 234.9L384 233.4L388 230.1L392 226.2L396 222.8L400 220.8L404 220.3"/><path d="M196 254.7L200 249.9L204 245.5L208 242.7L212 241.8L216 242.2L220 243L224 243.3L228 242.5L232 240.9L236 239.2L240 238.6L244 239.9L248 243.4L252 248.2L256 253.3L260 257.2L264 259L268 258.6L272 256.5L276 254L280 252L284 251.2L288 251.4L292 251.7L296 251.2L300 249.2L304 245.7L308 241.3L312 237.4L316 235.2L320 235.4L324 238L328 241.9L332 246.1L336 249.2L340 250.8L344 251L348 250.7L352 250.9L356 252.1L360 254.5L364 257.2L368 259.1L372 259.2L376 257L380 252.8L384 247.6L388 243L392 240L396 239L400 239.8L404 241.5"/><path d="M196 266.1L200 263L204 262.3L208 263.7L212 266.5L216 269.3L220 271.2L224 271.9L228 271.8L232 271.7L236 272.6L240 275L244 278.7L248 282.8L252 285.9L256 287L260 285.6L264 282.1L268 277.6L272 273.5L276 270.7L280 269.7L284 269.8L288 270.3L292 270.1L296 268.8L300 266.6L304 264.4L308 263.3L312 264.3L316 267.4L320 272.2L324 277.3L328 281.5L332 283.6L336 283.7L340 282.2L344 280.2L348 278.7L352 278.4L356 278.9L360 279.6L364 279.2L368 277.2L372 273.5L376 268.8L380 264.5L384 261.7L388 261.4L392 263.3L396 266.8L400 270.5L404 273.4"/><path d="M196 287.6L200 290.1L204 294.3L208 299L212 302.9L216 305.1L220 305.6L224 305.1L228 304.4L232 304.7L236 306L240 307.9L244 309.5L248 309.7L252 307.8L256 303.8L260 298.7L264 293.8L268 290.5L272 289.3L276 290.2L280 292.3L284 294.6L288 296.1L292 296.4L296 295.9L300 295.7L304 296.6L308 299.2L312 303.2L316 307.7L320 311.3L324 312.9L328 312.1L332 309.1L336 305.1L340 301.3L344 298.7L348 297.6L352 297.7L356 297.9L360 297.3L364 295.5L368 292.8L372 290L376 288.4L380 288.9L384 291.7L388 296.2L392 301.3L396 305.6L400 308L404 308.4"/><path d="M196 325.2L200 330.3L204 334.6L208 337.1L212 337.2L216 335.4L220 332.7L224 330.3L228 328.9L232 328.6L236 329L240 328.8L244 327.4L248 324.4L252 320.4L256 316.3L260 313.6L264 313.1L268 315.1L272 318.9L276 323.3L280 326.9L284 329.1L288 329.8L292 329.4L296 329.2L300 329.9L304 331.7L308 334.2L312 336.4L316 337L320 335.5L324 331.8L328 326.7L332 321.8L336 318.2L340 316.6L344 317L348 318.7L352 320.4L356 321.3L360 321.1L364 320.3L368 319.8L372 320.6L376 323.2L380 327.4L384 332.2L388 336.3L392 338.5L396 338.2L400 335.8L404 332.3"/><path d="M196 363.1L200 364.8L204 364.1L208 361.1L212 356.7L216 352.2L220 348.8L224 347.2L228 347.1L232 347.6L236 347.9L240 347.2L244 345.4L248 343.3L252 341.8L256 342.2L260 344.7L264 349.1L268 354.3L272 358.9L276 361.7L280 362.3L284 361L288 358.9L292 357L296 356.1L300 356.2L304 356.8L308 356.8L312 355.4L316 352.3L320 347.9L324 343.4L328 340.2L332 339.1L336 340.5L340 343.8L344 347.7L348 351.1L352 353.2L356 353.8L360 353.6L364 353.7L368 354.7L372 357L376 360.1L380 362.8L384 364L388 362.9L392 359.5L396 354.7L400 349.8L404 346.1"/><path d="M196 386.1L200 382.7L204 377.8L208 372.8L212 368.8L216 367L220 367.4L224 369.4L228 372L232 374L236 374.8L240 374.7L244 374.4L248 374.8L252 376.8L256 380.3L260 384.6L264 388.5L268 390.8L272 390.6L276 388.1L280 384.1L284 380L288 376.8L292 375.2L296 374.9L300 375.2L304 375.1L308 373.9L312 371.6L316 368.9L320 367L324 366.8L328 369L332 373.2L336 378.3L340 382.9L344 386L348 387L352 386.2L356 384.6L360 383.2L364 382.8L368 383.5L372 384.4L376 384.7L380 383.4L384 380.2L388 375.6L392 370.8L396 367.1L400 365.5L404 366.4"/></g>
+    <circle class="pl-nucleolus" cx="322" cy="284" r="19"/>
+    <circle class="pl-c" cx="322" cy="284" r="27"/>
+    <g class="pl-mark" transform="translate(262 336)"><circle r="12"/><text y="0.5">02</text></g>
+  </g>
+  <text class="pl-fig" x="6" y="594">FIG. 01 · SCHEMATIC · NOT TO SCALE</text>
+  <text class="pl-fig" x="594" y="594" text-anchor="end">N-INSTANCE / X-SECTION</text>
+</svg>
+        <figcaption class="plate-cap"><span data-plate-cap>All layers</span> — schematic, illustrative, not to scale.</figcaption>
+      </figure>
+      <ol class="anat-list">
+        <li><button class="anat-item" type="button" data-layer="membrane" aria-pressed="false">
+          <span class="ai-idx">01</span>
+          <span class="ai-name">Membrane <span class="ai-role">Interfaces</span></span>
+          <span class="ai-text">APIs, apps and channels where the organism meets your world. Permissions live here, at the boundary, where you can see them.</span>
+        </button></li>
+        <li><button class="anat-item" type="button" data-layer="cortex" aria-pressed="false">
+          <span class="ai-idx">02</span>
+          <span class="ai-name">Cortex <span class="ai-role">Models</span></span>
+          <span class="ai-text">Foundation and specialist models, routed per task and swappable without re-training the rest of the body.</span>
+        </button></li>
+        <li><button class="anat-item" type="button" data-layer="memory" aria-pressed="false">
+          <span class="ai-idx">03</span>
+          <span class="ai-name">Memory <span class="ai-role">Context</span></span>
+          <span class="ai-text">Episodic and semantic memory, scoped per team and forgettable on request — remembering is a permission, not a default.</span>
+        </button></li>
+        <li><button class="anat-item" type="button" data-layer="bus" aria-pressed="false">
+          <span class="ai-idx">04</span>
+          <span class="ai-name">Synapse bus <span class="ai-role">Events</span></span>
+          <span class="ai-text">A real-time mesh that carries signals between every part, so capabilities react to each other instead of waiting to be called.</span>
+        </button></li>
+        <li><button class="anat-item" type="button" data-layer="immune" aria-pressed="false">
+          <span class="ai-idx">05</span>
+          <span class="ai-name">Immune layer <span class="ai-role">Governance</span></span>
+          <span class="ai-text">Policies, audits and anomaly response that isolate a misbehaving part before the problem can spread.</span>
+        </button></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 04 GROWTH ============ -->
+  <section class="growth solid" id="growth" aria-labelledby="growth-title">
+    <div class="growth-pin">
+      <div class="section-head">
+        <p class="eyebrow"><span class="eyebrow-num">04</span>Growth</p>
+        <h2 id="growth-title" data-scan>It grows the way your organisation does.</h2>
+        <p class="section-lede">No big-bang rollout. NEXORA starts as a seed around one workflow and earns every new branch.</p>
+      </div>
+      <ol class="track">
+        <li class="stage" data-stage-i="0">
+          <div class="st-head"><span class="st-num">01</span><span class="st-label">Stage</span></div>
+          <div class="st-glyph"><svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+    <g class="gl-ground"><line x1="20" y1="186" x2="180" y2="186"/><line x1="40" y1="186" x2="40" y2="190"/><line x1="70" y1="186" x2="70" y2="190"/><line x1="130" y1="186" x2="130" y2="190"/><line x1="160" y1="186" x2="160" y2="190"/></g>
+    <g class="gl-old"></g>
+    <g class="gl-pruned"></g>
+    <g class="gl-new"></g>
+    <path class="gl-new" pathLength="1" d="M100 182 C100 172 104 166 108 160"/>
+    <g class="gl-tips"></g>
+    <circle class="gl-seed" cx="100" cy="182" r="9"/>
+    <circle class="gl-seed-ring" cx="100" cy="182" r="15"/>
+  </svg></div>
+          <h3>Seed</h3>
+          <p>Connect one workflow and one source of truth. The organism starts small on purpose.</p>
+        </li>
+        <li class="stage" data-stage-i="1">
+          <div class="st-head"><span class="st-num">02</span><span class="st-label">Stage</span></div>
+          <div class="st-glyph"><svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+    <g class="gl-ground"><line x1="20" y1="186" x2="180" y2="186"/><line x1="40" y1="186" x2="40" y2="190"/><line x1="70" y1="186" x2="70" y2="190"/><line x1="130" y1="186" x2="130" y2="190"/><line x1="160" y1="186" x2="160" y2="190"/></g>
+    <g class="gl-old"></g>
+    <g class="gl-pruned"></g>
+    <g class="gl-new"><path pathLength="1" d="M100 182L100 136"/></g>
+    
+    <g class="gl-tips"><circle cx="100" cy="136" r="3.2"/></g>
+    <circle class="gl-seed" cx="100" cy="182" r="6"/>
+    <circle class="gl-seed-ring" cx="100" cy="182" r="12"/>
+  </svg></div>
+          <h3>Sense</h3>
+          <p>It watches how work actually moves: the handoffs, the waiting, the exceptions nobody wrote down.</p>
+        </li>
+        <li class="stage" data-stage-i="2">
+          <div class="st-head"><span class="st-num">03</span><span class="st-label">Stage</span></div>
+          <div class="st-glyph"><svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+    <g class="gl-ground"><line x1="20" y1="186" x2="180" y2="186"/><line x1="40" y1="186" x2="40" y2="190"/><line x1="70" y1="186" x2="70" y2="190"/><line x1="130" y1="186" x2="130" y2="190"/><line x1="160" y1="186" x2="160" y2="190"/></g>
+    <g class="gl-old"><path d="M100 182L100 136"/></g>
+    <g class="gl-pruned"></g>
+    <g class="gl-new"><path pathLength="1" d="M100 136L119.7 111.3"/><path pathLength="1" d="M100 136L102.7 103"/><path pathLength="1" d="M100 136L80.3 111.2"/></g>
+    
+    <g class="gl-tips"><circle cx="119.7" cy="111.3" r="3.2"/><circle cx="102.7" cy="103" r="3.2"/><circle cx="80.3" cy="111.2" r="3.2"/></g>
+    <circle class="gl-seed" cx="100" cy="182" r="6"/>
+    <circle class="gl-seed-ring" cx="100" cy="182" r="12"/>
+  </svg></div>
+          <h3>Learn</h3>
+          <p>Patterns become proposals. Your team decides what it may do alone and what it must ask about.</p>
+        </li>
+        <li class="stage" data-stage-i="3">
+          <div class="st-head"><span class="st-num">04</span><span class="st-label">Stage</span></div>
+          <div class="st-glyph"><svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+    <g class="gl-ground"><line x1="20" y1="186" x2="180" y2="186"/><line x1="40" y1="186" x2="40" y2="190"/><line x1="70" y1="186" x2="70" y2="190"/><line x1="130" y1="186" x2="130" y2="190"/><line x1="160" y1="186" x2="160" y2="190"/></g>
+    <g class="gl-old"><path d="M100 182L100 136"/><path d="M100 136L119.7 111.3"/><path d="M100 136L102.7 103"/><path d="M100 136L80.3 111.2"/></g>
+    <g class="gl-pruned"></g>
+    <g class="gl-new"><path pathLength="1" d="M119.7 111.3L140.3 101.8"/><path pathLength="1" d="M140.3 101.8L157.4 103.7"/><path pathLength="1" d="M140.3 101.8L155.6 96.3"/><path pathLength="1" d="M140.3 101.8L148.1 87.1"/><path pathLength="1" d="M119.7 111.3L123.1 88.7"/><path pathLength="1" d="M123.1 88.7L132.7 75.8"/><path pathLength="1" d="M123.1 88.7L116.9 72.2"/><path pathLength="1" d="M102.7 103L116 83.3"/><path pathLength="1" d="M116 83.3L132 75"/><path pathLength="1" d="M116 83.3L119.4 66.9"/><path pathLength="1" d="M102.7 103L97.3 80.8"/><path pathLength="1" d="M97.3 80.8L100.4 63.5"/><path pathLength="1" d="M97.3 80.8L86.1 69.3"/><path pathLength="1" d="M80.3 111.2L78.2 87.3"/><path pathLength="1" d="M78.2 87.3L85.6 72.4"/><path pathLength="1" d="M78.2 87.3L76.6 70.8"/><path pathLength="1" d="M78.2 87.3L67.2 74.9"/><path pathLength="1" d="M80.3 111.2L67.2 92.2"/><path pathLength="1" d="M67.2 92.2L63.2 76.4"/><path pathLength="1" d="M67.2 92.2L53.9 82.9"/><path pathLength="1" d="M80.3 111.2L59.1 100.9"/><path pathLength="1" d="M59.1 100.9L46.9 87.8"/><path pathLength="1" d="M59.1 100.9L41.2 101.7"/></g>
+    
+    <g class="gl-tips"><circle cx="140.3" cy="101.8" r="3.2"/><circle cx="157.4" cy="103.7" r="3.2"/><circle cx="155.6" cy="96.3" r="3.2"/><circle cx="148.1" cy="87.1" r="3.2"/><circle cx="123.1" cy="88.7" r="3.2"/><circle cx="132.7" cy="75.8" r="3.2"/><circle cx="116.9" cy="72.2" r="3.2"/><circle cx="116" cy="83.3" r="3.2"/><circle cx="132" cy="75" r="3.2"/><circle cx="119.4" cy="66.9" r="3.2"/><circle cx="97.3" cy="80.8" r="3.2"/><circle cx="100.4" cy="63.5" r="3.2"/><circle cx="86.1" cy="69.3" r="3.2"/><circle cx="78.2" cy="87.3" r="3.2"/><circle cx="85.6" cy="72.4" r="3.2"/><circle cx="76.6" cy="70.8" r="3.2"/><circle cx="67.2" cy="74.9" r="3.2"/><circle cx="67.2" cy="92.2" r="3.2"/><circle cx="63.2" cy="76.4" r="3.2"/><circle cx="53.9" cy="82.9" r="3.2"/><circle cx="59.1" cy="100.9" r="3.2"/><circle cx="46.9" cy="87.8" r="3.2"/><circle cx="41.2" cy="101.7" r="3.2"/></g>
+    <circle class="gl-seed" cx="100" cy="182" r="6"/>
+    <circle class="gl-seed-ring" cx="100" cy="182" r="12"/>
+  </svg></div>
+          <h3>Branch</h3>
+          <p>New capabilities grow from proven ones — never from a blank slate, always from evidence.</p>
+        </li>
+        <li class="stage" data-stage-i="4">
+          <div class="st-head"><span class="st-num">05</span><span class="st-label">Stage</span></div>
+          <div class="st-glyph"><svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+    <g class="gl-ground"><line x1="20" y1="186" x2="180" y2="186"/><line x1="40" y1="186" x2="40" y2="190"/><line x1="70" y1="186" x2="70" y2="190"/><line x1="130" y1="186" x2="130" y2="190"/><line x1="160" y1="186" x2="160" y2="190"/></g>
+    <g class="gl-old"><path d="M100 182L100 136"/><path d="M100 136L119.7 111.3"/><path d="M119.7 111.3L140.3 101.8"/><path d="M140.3 101.8L157.4 103.7"/><path d="M140.3 101.8L155.6 96.3"/><path d="M140.3 101.8L148.1 87.1"/><path d="M119.7 111.3L123.1 88.7"/><path d="M123.1 88.7L132.7 75.8"/><path d="M123.1 88.7L116.9 72.2"/><path d="M100 136L102.7 103"/><path d="M102.7 103L116 83.3"/><path d="M116 83.3L132 75"/><path d="M116 83.3L119.4 66.9"/><path d="M102.7 103L97.3 80.8"/><path d="M97.3 80.8L100.4 63.5"/><path d="M97.3 80.8L86.1 69.3"/><path d="M100 136L80.3 111.2"/><path d="M80.3 111.2L78.2 87.3"/><path d="M78.2 87.3L85.6 72.4"/><path d="M78.2 87.3L76.6 70.8"/><path d="M78.2 87.3L67.2 74.9"/><path d="M80.3 111.2L67.2 92.2"/><path d="M67.2 92.2L63.2 76.4"/><path d="M67.2 92.2L53.9 82.9"/></g>
+    <g class="gl-pruned"><path d="M80.3 111.2L59.1 100.9"/><path d="M59.1 100.9L46.9 87.8"/><path d="M59.1 100.9L41.2 101.7"/></g>
+    <g class="gl-new"></g>
+    
+    <g class="gl-tips"><circle cx="157.4" cy="103.7" r="3.2"/><circle cx="155.6" cy="96.3" r="3.2"/><circle cx="148.1" cy="87.1" r="3.2"/><circle cx="132.7" cy="75.8" r="3.2"/><circle cx="116.9" cy="72.2" r="3.2"/><circle cx="132" cy="75" r="3.2"/><circle cx="119.4" cy="66.9" r="3.2"/><circle cx="100.4" cy="63.5" r="3.2"/><circle cx="86.1" cy="69.3" r="3.2"/><circle cx="85.6" cy="72.4" r="3.2"/><circle cx="76.6" cy="70.8" r="3.2"/><circle cx="67.2" cy="74.9" r="3.2"/><circle cx="63.2" cy="76.4" r="3.2"/><circle cx="53.9" cy="82.9" r="3.2"/></g>
+    <circle class="gl-seed" cx="100" cy="182" r="6"/>
+    <circle class="gl-seed-ring" cx="100" cy="182" r="12"/>
+  </svg></div>
+          <h3>Prune</h3>
+          <p>Paths that stop earning their keep are retired, so the system stays legible and cheap to run.</p>
+        </li>
+        <li class="stage" data-stage-i="5">
+          <div class="st-head"><span class="st-num">06</span><span class="st-label">Stage</span></div>
+          <div class="st-glyph"><svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+    <g class="gl-ground"><line x1="20" y1="186" x2="180" y2="186"/><line x1="40" y1="186" x2="40" y2="190"/><line x1="70" y1="186" x2="70" y2="190"/><line x1="130" y1="186" x2="130" y2="190"/><line x1="160" y1="186" x2="160" y2="190"/></g>
+    <g class="gl-old"><path d="M100 182L100 136"/><path d="M100 136L119.7 111.3"/><path d="M119.7 111.3L140.3 101.8"/><path d="M140.3 101.8L157.4 103.7"/><path d="M140.3 101.8L155.6 96.3"/><path d="M140.3 101.8L148.1 87.1"/><path d="M119.7 111.3L123.1 88.7"/><path d="M123.1 88.7L132.7 75.8"/><path d="M123.1 88.7L116.9 72.2"/><path d="M100 136L102.7 103"/><path d="M102.7 103L116 83.3"/><path d="M116 83.3L132 75"/><path d="M116 83.3L119.4 66.9"/><path d="M102.7 103L97.3 80.8"/><path d="M97.3 80.8L100.4 63.5"/><path d="M97.3 80.8L86.1 69.3"/><path d="M100 136L80.3 111.2"/><path d="M80.3 111.2L78.2 87.3"/><path d="M78.2 87.3L85.6 72.4"/><path d="M78.2 87.3L76.6 70.8"/><path d="M78.2 87.3L67.2 74.9"/><path d="M80.3 111.2L67.2 92.2"/><path d="M67.2 92.2L63.2 76.4"/><path d="M67.2 92.2L53.9 82.9"/></g>
+    <g class="gl-pruned"></g>
+    <g class="gl-new"><path pathLength="1" d="M157.4 103.7L166.9 112.4"/><path pathLength="1" d="M157.4 103.7L170.3 105.9"/><path pathLength="1" d="M157.4 103.7L168.1 97.1"/><path pathLength="1" d="M155.6 96.3L167.9 97"/><path pathLength="1" d="M155.6 96.3L164.6 89.5"/><path pathLength="1" d="M148.1 87.1L156.8 79.4"/><path pathLength="1" d="M148.1 87.1L147.3 74.4"/><path pathLength="1" d="M132.7 75.8L144.7 72.6"/><path pathLength="1" d="M132.7 75.8L140.6 66.2"/><path pathLength="1" d="M132.7 75.8L133.4 64.7"/><path pathLength="1" d="M116.9 72.2L116.6 58.7"/><path pathLength="1" d="M116.9 72.2L108.3 63.3"/><path pathLength="1" d="M132 75L145.2 75.2"/><path pathLength="1" d="M132 75L139.2 64.5"/><path pathLength="1" d="M119.4 66.9L125.9 55.7"/><path pathLength="1" d="M119.4 66.9L116.4 54.8"/><path pathLength="1" d="M100.4 63.5L107.6 53.2"/><path pathLength="1" d="M100.4 63.5L102.3 51.1"/><path pathLength="1" d="M100.4 63.5L94.2 51.2"/><path pathLength="1" d="M86.1 69.3L82.6 57.6"/><path pathLength="1" d="M86.1 69.3L75.7 62.5"/><path pathLength="1" d="M85.6 72.4L94.3 64.8"/><path pathLength="1" d="M85.6 72.4L85.4 59.7"/><path pathLength="1" d="M76.6 70.8L79.4 59.7"/><path pathLength="1" d="M76.6 70.8L68.6 61.9"/><path pathLength="1" d="M67.2 74.9L64.4 62.5"/><path pathLength="1" d="M67.2 74.9L55.1 71.2"/><path pathLength="1" d="M63.2 76.4L65.4 65"/><path pathLength="1" d="M63.2 76.4L54.7 67.6"/><path pathLength="1" d="M53.9 82.9L48.8 71.4"/><path pathLength="1" d="M53.9 82.9L42.4 79.1"/></g>
+    
+    <g class="gl-tips"><circle cx="166.9" cy="112.4" r="2.6"/><circle cx="170.3" cy="105.9" r="2.6"/><circle cx="168.1" cy="97.1" r="2.6"/><circle cx="167.9" cy="97" r="2.6"/><circle cx="164.6" cy="89.5" r="2.6"/><circle cx="156.8" cy="79.4" r="2.6"/><circle cx="147.3" cy="74.4" r="2.6"/><circle cx="144.7" cy="72.6" r="2.6"/><circle cx="140.6" cy="66.2" r="2.6"/><circle cx="133.4" cy="64.7" r="2.6"/><circle cx="116.6" cy="58.7" r="2.6"/><circle cx="108.3" cy="63.3" r="2.6"/><circle cx="145.2" cy="75.2" r="2.6"/><circle cx="139.2" cy="64.5" r="2.6"/><circle cx="125.9" cy="55.7" r="2.6"/><circle cx="116.4" cy="54.8" r="2.6"/><circle cx="107.6" cy="53.2" r="2.6"/><circle cx="102.3" cy="51.1" r="2.6"/><circle cx="94.2" cy="51.2" r="2.6"/><circle cx="82.6" cy="57.6" r="2.6"/><circle cx="75.7" cy="62.5" r="2.6"/><circle cx="94.3" cy="64.8" r="2.6"/><circle cx="85.4" cy="59.7" r="2.6"/><circle cx="79.4" cy="59.7" r="2.6"/><circle cx="68.6" cy="61.9" r="2.6"/><circle cx="64.4" cy="62.5" r="2.6"/><circle cx="55.1" cy="71.2" r="2.6"/><circle cx="65.4" cy="65" r="2.6"/><circle cx="54.7" cy="67.6" r="2.6"/><circle cx="48.8" cy="71.4" r="2.6"/><circle cx="42.4" cy="79.1" r="2.6"/></g>
+    <circle class="gl-seed" cx="100" cy="182" r="6"/>
+    <circle class="gl-seed-ring" cx="100" cy="182" r="12"/>
+  </svg></div>
+          <h3>Mature</h3>
+          <p>A stable intelligence that keeps adapting — inside the boundaries you set and can redraw.</p>
+        </li>
+      </ol>
+      <div class="track-progress" aria-hidden="true"><span class="tp-fill"></span><span class="tp-label">Seed → Mature</span></div>
+    </div>
+  </section>
+
+  <!-- ============ 05 PROTOCOL ============ -->
+  <section class="protocol solid" id="protocol" aria-labelledby="protocol-title">
+    <div class="proto-grid">
+      <div class="proto-main">
+        <p class="eyebrow"><span class="eyebrow-num">05</span>Protocol</p>
+        <h2 id="protocol-title" data-scan>Alive, not unsupervised.</h2>
+        <p class="section-lede">An intelligence that grows needs boundaries that grow with it. Four rules are written into the organism itself, not bolted on afterwards.</p>
+        <ol class="ledger">
+          <li><span class="pr-idx">P1</span><h3 class="pr-word" data-scan>Observable</h3><p>Every action leaves a trace you can read, replay and question.</p></li>
+          <li><span class="pr-idx">P2</span><h3 class="pr-word" data-scan>Bounded</h3><p>Permissions are membranes: scoped, visible, and revocable in one move.</p></li>
+          <li><span class="pr-idx">P3</span><h3 class="pr-word" data-scan>Reversible</h3><p>If the organism can't undo an action, it doesn't take it alone.</p></li>
+          <li><span class="pr-idx">P4</span><h3 class="pr-word" data-scan>Answerable</h3><p>Above the thresholds you set, a named person decides. Always.</p></li>
+        </ol>
+      </div>
+      <aside class="log" aria-labelledby="log-title">
+        <div class="log-head">
+          <span class="log-led" aria-hidden="true"></span>
+          <h3 id="log-title">Signal log</h3>
+          <span class="log-tag">Illustrative</span>
+          <button class="log-toggle" type="button" data-act="motion" aria-pressed="false"><span data-motion-label>Pause motion</span></button>
+        </div>
+        <ol class="log-list" aria-label="Illustrative event stream with fictional data"></ol>
+        <p class="log-foot">Fictional events showing what the immune layer surfaces. Not real product output.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ 06 ACCESS ============ -->
+  <section class="access" id="access" data-stage="access" aria-labelledby="access-title">
+    <div class="access-grid">
+      <div class="access-panel">
+        <p class="eyebrow"><span class="eyebrow-num">06</span>Early access</p>
+        <h2 id="access-title" data-scan>Plant a seed in your organisation.</h2>
+        <p class="section-lede">Tell us where it should start. Choose a capability and the organism behind this form re-wires to show you the seed.</p>
+
+        <form class="seed-form" id="seed-form" novalidate>
+          <div class="form-summary" role="alert" hidden></div>
+          <div class="form-grid">
+            <div class="field">
+              <label for="f-name">Full name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err">
+              <p class="field-error" id="f-name-err"></p>
+            </div>
+            <div class="field">
+              <label for="f-email">Work email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-err">
+              <p class="field-error" id="f-email-err"></p>
+            </div>
+            <div class="field">
+              <label for="f-org">Organisation</label>
+              <input id="f-org" name="org" type="text" autocomplete="organization" required aria-describedby="f-org-err">
+              <p class="field-error" id="f-org-err"></p>
+            </div>
+            <div class="field">
+              <label for="f-size">Team size</label>
+              <div class="select-wrap">
+                <select id="f-size" name="size" required aria-describedby="f-size-err">
+                  <option value="">Select a range</option>
+                  <option>1–50 people</option>
+                  <option>51–250 people</option>
+                  <option>251–1,000 people</option>
+                  <option>More than 1,000 people</option>
+                </select>
+              </div>
+              <p class="field-error" id="f-size-err"></p>
+            </div>
+          </div>
+
+          <fieldset class="field cap-field" aria-describedby="f-cap-err">
+            <legend>Where should it start?</legend>
+            <div class="cap-choices">
+              <label class="choice"><input type="radio" name="cap" value="agents"><span class="choice-box"><span class="cb-idx">01</span><span class="cb-name">Agents</span></span></label>
+              <label class="choice"><input type="radio" name="cap" value="automation"><span class="choice-box"><span class="cb-idx">02</span><span class="cb-name">Automation</span></span></label>
+              <label class="choice"><input type="radio" name="cap" value="perception"><span class="choice-box"><span class="cb-idx">03</span><span class="cb-name">Perception</span></span></label>
+              <label class="choice"><input type="radio" name="cap" value="reasoning"><span class="choice-box"><span class="cb-idx">04</span><span class="cb-name">Reasoning</span></span></label>
+            </div>
+            <p class="field-error" id="f-cap-err"></p>
+          </fieldset>
+
+          <div class="field">
+            <label for="f-msg">What should it learn first?</label>
+            <textarea id="f-msg" name="msg" rows="4" required aria-describedby="f-msg-hint f-msg-err" placeholder="e.g. Triage incoming supplier invoices and flag anything unusual"></textarea>
+            <p class="field-hint" id="f-msg-hint">At least 20 characters. One workflow is plenty.</p>
+            <p class="field-error" id="f-msg-err"></p>
+          </div>
+
+          <div class="field check-field">
+            <label class="check">
+              <input id="f-consent" name="consent" type="checkbox" required aria-describedby="f-consent-err">
+              <span class="check-box" aria-hidden="true"></span>
+              <span>I understand NEXORA is a fictional concept and this form is a demo.</span>
+            </label>
+            <p class="field-error" id="f-consent-err"></p>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Plant the seed</button>
+            <p class="form-note">Portfolio demo — nothing you type leaves this page.</p>
+          </div>
+        </form>
+
+        <div class="seed-success" id="seed-success" tabindex="-1" hidden>
+          <p class="ss-kicker">Seed planted · demo only</p>
+          <p class="ss-title">Your <span data-success-cap>Agents</span> seed is growing — on this page.</p>
+          <p class="ss-body">NEXORA is a fictional concept brand and this is a portfolio project. Nothing was sent, stored or booked, and no one will contact you.</p>
+          <button class="btn btn-line" type="button" data-act="reset-form">Plant another seed</button>
+        </div>
+      </div>
+
+      <div class="seed-col" aria-hidden="true">
+        <div class="seed-hud">
+          <span class="sh-k">Seed preview</span>
+          <strong class="sh-v" data-hud="seed">Organism</strong>
+          <span class="sh-s" data-hud="seed-topo">Dendritic whole</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p class="ft-word" aria-hidden="true">NEXORA</p>
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <svg class="ft-mark" aria-hidden="true" focusable="false"><use href="#nx-mark"/></svg>
+      <p class="ft-tag">The Living Intelligence</p>
+      <p class="ft-blurb">An AI platform imagined as a digital organism — agents, automation, perception and reasoning sharing one nervous system.</p>
+    </div>
+    <nav class="ft-nav" aria-label="Footer">
+      <h2 class="ft-h">Explore</h2>
+      <ul>
+        <li><a href="#organism">Organism</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#anatomy">Anatomy</a></li>
+        <li><a href="#growth">Growth</a></li>
+        <li><a href="#protocol">Protocol</a></li>
+        <li><a href="#access">Early access</a></li>
+      </ul>
+    </nav>
+    <div class="ft-credit">
+      <p class="ft-h">Signature</p>
+      <div class="credit-card">
+        <p class="credit-line">Designed &amp; built by <a href="https://www.linkedin.com/in/saadbashirmarketing/" target="_blank" rel="noopener" aria-label="Saad Bashir on LinkedIn (opens in a new tab)">Saad Bashir</a></p>
+        <p class="credit-note">Fictional concept brand — portfolio project.</p>
+        <a class="credit-more" href="https://saadbashirportfolio.vercel.app/websites.html">More work <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-base">
+    <p>© 2026 NEXORA. A concept — no real product, company or service.</p>
+    <a href="#organism">Back to the organism <span aria-hidden="true">↑</span></a>
+  </div>
+</footer>
+
+<p class="sr-only" id="live" aria-live="polite"></p>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284 64" width="284" height="64" role="img" aria-labelledby="t">
+  <title id="t">NEXORA</title>
+  <defs>
+    <linearGradient id="g" x1="8" y1="56" x2="56" y2="8" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#29E3F2"/>
+      <stop offset="1" stop-color="#7A4DFF"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <path d="M32 4A28 28 0 1 0 53.45 14" fill="none" stroke="url(#g)" stroke-width="1.8" stroke-linecap="round" opacity=".6"/>
+    <path d="M18 46V18L46 46V18" fill="none" stroke="url(#g)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M46 18L55.5 8.5" fill="none" stroke="#E7E9EE" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="18" cy="46" r="4.2" fill="#29E3F2"/>
+    <circle cx="18" cy="18" r="3.2" fill="#E7E9EE"/>
+    <circle cx="46" cy="46" r="3.2" fill="#E7E9EE"/>
+    <circle cx="46" cy="18" r="4.2" fill="#7A4DFF"/>
+    <circle cx="32" cy="32" r="2.2" fill="#E7E9EE"/>
+    <circle cx="56" cy="8" r="2.6" fill="#29E3F2"/>
+  </g>
+  <g fill="none" stroke="#E7E9EE" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter" transform="translate(88 18)">
+    <path d="M0 28V0L22 28V0"/>
+    <path transform="translate(34 0)" d="M22 0H0V28H22M0 14H17"/>
+    <path transform="translate(68 0)" d="M0 0L22 28M22 0L0 28"/>
+    <path transform="translate(102 0)" d="M5 0H17L22 5V23L17 28H5L0 23V5Z"/>
+    <path transform="translate(136 0)" d="M0 28V0H17L22 5V9.5L17 14.5H0M11 14.5L22 28"/>
+    <path transform="translate(170 0)" d="M0 28V7L7 0H15L22 7V28M0 17H22"/>
+  </g>
+</svg>
