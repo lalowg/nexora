@@ -116,7 +116,7 @@ Then open the printed local URL. A server is needed because ES modules don't loa
 - Without WebGL, the SVG fallback re-wires and grows instantly with a cross-fade instead of migrating neurons, and has no pointer attention light.
 - The signal log, readouts and counts are illustrative and fictional.
 - The horizontal growth track switches to a vertical timeline below 900 px wide or 620 px tall.
-- `og.png` is produced separately by the portfolio lead.
+- `og.jpg` is produced separately by the portfolio lead.
 
 ## Credit
 
